@@ -10,4 +10,5 @@
 [cheatsheets](http://www.duckduckgo.com)  
 [faq](http://www.duckduckgo.com)  
 [links](http://www.duckduckgo.com)  
+[advertizers](http://www.duckduckgo.com)  
 [about](http://www.duckduckgo.com)  
