@@ -17,4 +17,5 @@ for content_file in content/*; do
 	cmark $content_file >> $build_file
 	echo '</body>' >> $build_file
 
+	cp html/linuxconsole.css build
 done
