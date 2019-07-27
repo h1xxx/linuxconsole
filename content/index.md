@@ -15,9 +15,11 @@ Advantages:
 
 1. Fame
 
-In less technical community.
+	In less technical community.
 
 2. Free gadgets from big companies.
+
+	They will line up.
 
 
 Disadvantages:
