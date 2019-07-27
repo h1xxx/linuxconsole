@@ -8,11 +8,8 @@ for content_file in content/*; do
 	name=$(basename $content_file .md)
 	build_file="build/$name.html"
 
-	if [ -f links/$name.links.md ]; then
-		links_file="links/$name.links.md"
-	else
-		links_file='links/back.links.md'
-	fi
+	links_file="links/$name.links.md"
+	[ -f $links_file ] || links_file='links/back.links.md'
 
 	cat html/html.head.txt > $build_file
 	cmark $links_file >> $build_file
