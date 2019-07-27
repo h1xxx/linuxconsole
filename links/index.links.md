@@ -6,7 +6,7 @@
 [ms office](./ms_office.html)  
 [dev workflow](dev_workflow.html)  
 [finance](./finance.html)  
-[computing](./computing.html)  
+[my computing](./my_computing.html)  
 [cheatsheets](./cheatsheets.html)  
 [faq](./faq.html)  
 [links](./links.html)  
