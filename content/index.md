@@ -6,5 +6,5 @@ Welcome!
 Welcome.
 ```
 
-> fonts compilation
-> dualhead
+- fonts compilation
+- dualhead
