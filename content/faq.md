@@ -38,3 +38,13 @@ Disadvantages:
 
 
 
+I don't want to spend time on setting up my system I want to have real work done
+
+15 years ago I used to do Gentoo stage 1 builds and fuck around with all that
+nonsense. Nowadays
+
+
+don't you surf the web? Do you use then lynx or another text web
+*   browser? What about services and platforms that are designed from
+scratch with images and video as a prominent part of that UI? (Twitter,
+Facebook, Amazon store for example)?
