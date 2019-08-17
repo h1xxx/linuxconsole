@@ -1,0 +1,213 @@
+
+				[ memory ]
+
+
+cat /proc/meminfo
+free -m / -h
+vmstat -s
+dmidecode
+
+
+				[ disk ]
+
+
+vmstat -d / -D
+
+set disk in read-only mode
+$ hdparm -r1 <device>
+
+turn on(1)/off(0) disk cache
+$ hdparm -W1 <device>
+
+show info on disks
+$ hwinfo --block
+
+fill the free space with 0, not efficient
+$ cp /dev/zero ./zero.txt
+
+clear the free space on not mounted thin provisioned drive after fsck  
+$ e2fsck -E discard /dev/sda3
+
+clear the free space on mounted thin provisioned drive 
+fstrim /mnt/fs
+
+fstrim -av                      clear free space on all mounted drives supporting trim
+gdisk -l sda.img                find the sector size and start sectors of the image
+losetup -o $((512*10000) /dev/loop0 sda.img     create the loop device with the partition you need to mount
+losetup -f --show -P sda.img    automatically create loop devices out of image?
+tune2fs -i 200 /dev/sda1        change the interval between fs checks to 200 days
+tune2fs -c 30 /dev/sdaX         change the interval of fs checks to 30 boots
+dumpe2fs -h                     check stats including max mount count
+tune2fs -C                      set the mount count higher than the maximum
+
+mke2fs -j /dev/sda1             make ext3 filesystem
+/dev/disk/by-uuid/
+
+
+
+				[ processes ]
+
+lsof                    #list opened files
+
+limit the size of available memory to a process to 500M
+`ulimit -Sv 500000`
+
+
+
+				[ systemd ]
+
+display the journal from current boot  
+`journalctl -xb`
+
+list enabled services
+`systemctl list-unit-files | grep enabled`
+
+show all installed units files
+`systemctl list-unit-files`
+
+show all units loaded in memory
+systemctl list-units
+
+show units in the current target (run-level)
+`systemctl list-units --type=target` 
+
+list dependencies for a unit
+`systemctl list-dependencies docker`
+
+list croups (control groups)
+`systemd-lscg`
+`ps xawf -eo pid,user,cgroup,args`
+
+reload configuration file
+`systemctl reload docker.service`
+
+reload and restart all daemons
+`systemctl daemon-reload`
+
+# udev
+
+reload udev rules
+`udevadm control --reload`
+
+[kernel modules]
+rmmod nvidia                remove module
+modprobe iwlwifi            load kernel module
+lsmod                       list all the modules 
+lspci -k                    list drivers
+modinfo mod_name            info on modules
+dmesh -w                    real time view of kernel messages
+journalctl -f               real time view of systemctl log
+usb-devices
+
+
+#reload config files
+    source /etc/profile
+    . /etc/profile
+
+#logs for openvpn
+    journalctl _SYSTEMD_UNIT=openvpn@Germany.service
+
+#kernel version
+    uname -mor
+    cat /proc/version    
+    rpm -q kernel
+
+
+## kernel parameters
+
+list parameters provided by bootloader
+cat /proc/cmdline
+
+list all kernel parameters
+`sysctl -a`
+
+change kernel parameter at runtime
+`sysctl net.ipv4.ip_forward=1`
+
+reload parameters from config files /etc/sysctl/*
+`sysctl -p` 
+
+
+[alsa]
+speaker-test
+lsmod | grep snd
+cat /proc/asound/cards
+cat /proc/asound/card0/id
+aplay -l
+~/.asoundrc         <cfg_file>
+#in /etc/modprobe.d/modprobe.conf add "options snd_hda_intel id=PHC index=1" if card is not working
+
+
+#pacman
+    #list orphans
+    pacman -Qdt
+    #remove orphans
+    pacman -Rns $(pacman -Qdtq)
+    #list explicitly installed packages / de
+    pacman -Qe / -Qd
+    #clear cache from removed packages
+    pacman -Sc
+    #update kernel
+	pacman -Syu linux
+
+
+#shutdown
+    shutdown 5 Reason           #shutdown system in 5 minutes showing Reason on opened shells
+    shutdown -r 10 Reason       #reboot in 10
+    shutdown -h 16:56           # halt on that time
+    wall Message to users
+
+
+#init V
+    lsinitrd                    #display contents of initrd file
+    runlevel                    #diplay runlevel
+    telinit 5                   #change runlevel
+    
+
+# quotas
+
+show quotas 
+repquota -a
+
+
+# other
+
+clear zombie processes
+`kill -HUP $(ps -A -ostat,ppid | grep -e '[zZ]'| awk '{ print $2 }')`
+
+log message in system log
+`logger this_is_message`
+
+    systool -v -m snd_hda_intel
+    cat /proc/interrupts        #check interrupts
+    lspci -d 8086:*             #list all intel PCI devices
+    setpci                      #query and configure PCI devices
+    setpci -s 12:3.4 N.W=1      #write a word in N register of a PCI device
+    uptime
+
+sudo hwclock --show
+xbindkeys -mk #to get a key code
+xmodmap -pke #o get a list of assigned keycodes
+showkey -s # show assigned key under console
+xev -event keyboard #show x events for keyboard
+/etc/systemd/journald.conf
+lsof  # deterine which process make =s the file busy
+ulimit
+xset r rate 300 40 # set the keyboard typmatice delay and rate; defaults 660 25
+xset r rate 200 35
+sudo fallocate -l 63G ./swapfile
+sudo mkswap swapfile
+swapon swapfile
+swapon --show
+sudo systemctl daemon-reload                # reload all daemons and their conifguration files
+sudo systemctl restart cryptsetup.target
+fuser
+udevadm monitor
+echo 0 > /sys/class//graphics/fbcon/cursor_blink
+cat /proc/sys/kernel/random/entropy_avail     # show available entropy
+mkinitcpio -L #list all the hooks
+mkinitcpio -H consolefont #show help for hook consolefont
+cat /proc/cmdline # list kernel parameters
+
+rsync moves files from a list - append the paths from file to the source dir
+rsync -avP --files-from files_list <source dir> root@vm2://
