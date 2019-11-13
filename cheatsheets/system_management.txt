@@ -29,74 +29,107 @@ clear the free space on not mounted thin provisioned drive after fsck
 $ e2fsck -E discard /dev/sda3
 
 clear the free space on mounted thin provisioned drive 
-fstrim /mnt/fs
+$ fstrim /mnt/fs
 
-fstrim -av                      clear free space on all mounted drives supporting trim
-gdisk -l sda.img                find the sector size and start sectors of the image
-losetup -o $((512*10000) /dev/loop0 sda.img     create the loop device with the partition you need to mount
-losetup -f --show -P sda.img    automatically create loop devices out of image?
-tune2fs -i 200 /dev/sda1        change the interval between fs checks to 200 days
-tune2fs -c 30 /dev/sdaX         change the interval of fs checks to 30 boots
-dumpe2fs -h                     check stats including max mount count
-tune2fs -C                      set the mount count higher than the maximum
+clear free space on all mounted drives supporting trim
+$ fstrim -av
 
-mke2fs -j /dev/sda1             make ext3 filesystem
-/dev/disk/by-uuid/
+find the sector size and start sectors of the image
+$ gdisk -l sda.img
+
+create the loop device with the partition you need to mount
+$ losetup -o $((512*10000) /dev/loop0 sda.img
+
+automatically create loop devices out of image?
+$ losetup -f --show -P sda.img
+
+change the interval between fs checks to 200 days
+$ tune2fs -i 200 /dev/sda1
+
+change the interval of fs checks to 30 boots
+$ tune2fs -c 30 /dev/sdaX
+
+check stats including max mount count
+$ dumpe2fs -h
+
+set the mount count higher than the maximum
+$ tune2fs -C
+
+make ext3 filesystem
+$ mke2fs -j /dev/sda1
+
+list uuid mapping for disk devices
+$ ls /dev/disk/by-uuid/
 
 
 
 				[ processes ]
 
-lsof                    #list opened files
+list all opened files
+$ lsof
 
 limit the size of available memory to a process to 500M
-`ulimit -Sv 500000`
+$ ulimit -Sv 500000
 
+list croups (control groups)
+$ ps xawf -eo pid,user,cgroup,args
 
 
 				[ systemd ]
 
 display the journal from current boot  
-`journalctl -xb`
+$ journalctl -xb
 
 list enabled services
-`systemctl list-unit-files | grep enabled`
+$ systemctl list-unit-files | grep enabled
 
 show all installed units files
-`systemctl list-unit-files`
+$ systemctl list-unit-files
 
 show all units loaded in memory
-systemctl list-units
+$ systemctl list-units
 
 show units in the current target (run-level)
-`systemctl list-units --type=target` 
+$ systemctl list-units --type=target
 
 list dependencies for a unit
-`systemctl list-dependencies docker`
+$ systemctl list-dependencies docker
 
 list croups (control groups)
-`systemd-lscg`
-`ps xawf -eo pid,user,cgroup,args`
+$ systemd-lscg
 
 reload configuration file
-`systemctl reload docker.service`
+$ systemctl reload docker.service
 
 reload and restart all daemons
-`systemctl daemon-reload`
+$ systemctl daemon-reload
 
-# udev
+
+				[ udev ]
 
 reload udev rules
-`udevadm control --reload`
+$ udevadm control --reload
 
-[kernel modules]
-rmmod nvidia                remove module
-modprobe iwlwifi            load kernel module
-lsmod                       list all the modules 
+
+				[ kernel modules ]
+
+load kernel module
+$ modprobe module_1
+
+unload  kernel module
+$ rmmod module_1
+
+list all the modules 
+$ lsmod
+
 lspci -k                    list drivers
+
 modinfo mod_name            info on modules
+
 dmesh -w                    real time view of kernel messages
-journalctl -f               real time view of systemctl log
+
+journalctl -f               real time view of systemctl log 
+
 usb-devices
 
 
