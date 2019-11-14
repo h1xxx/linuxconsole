@@ -6,8 +6,9 @@ This site is dedicated to using computers only through the console of
 Linux systems for all the common tasks that computers are normally used for.  
   
 You can satisfy many of your computing needs without any graphical  
-environment. I am using my personal computers like that most of the time for  
-many years now and I wanted to share my experiences in doing so. 
+environment (not counting framebuffer here). I am using my personal computers  
+like that most of the time for many years now and I wanted to share my  
+experiences in doing so. 
 
 If you are wondering why using a personal computer completely without a gui  
 might be useful, you might want to take a look at the FAQ section. Also if  
