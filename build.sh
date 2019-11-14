@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/mksh
 
 set -euo pipefail
 
@@ -19,3 +19,4 @@ for content_file in content/*; do
 
 	cp html/linuxconsole.css build
 done
+
