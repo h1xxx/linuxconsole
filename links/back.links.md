@@ -1,1 +1,1 @@
-[back](./index.html)  
+[back to main page](./index.html)  
