@@ -8,6 +8,8 @@ for content_file in content/*; do
 	name=$(basename $content_file .md)
 	build_file="build/$name.html"
 
+	echo building $name...
+
 	links_file="links/$name.links.md"
 	[ -f $links_file ] || links_file='links/back.links.md'
 
@@ -20,3 +22,4 @@ for content_file in content/*; do
 	cp html/linuxconsole.css build
 done
 
+echo build done.
