@@ -1,6 +1,7 @@
+
 # # font
 
-Probably the choice of font is the most important one can make when living in  
+For me the choice of font is the most important one can make when living in  
 the console. I've spent many hours testing different fonts and I have  
 found the one that is perfect - [unifont][01].  
 
@@ -104,6 +105,41 @@ echo 'kernel.printk = 7 4 1 4' > /etc/sysctl.d/kernel_msgs.conf
 
 
 -------------------------------------------------------------------------------
+
+# # users
+
+To be able to play videos in your Linux console and listen to audio you'll  
+need to add a user doing those things to `audio` and `video` groups.
+
+Using different users to run different programs is in general a great  
+idea, but be aware that in linux console this separation has a hole in  
+a shape of the framebuffer. User in a video group have access to the  
+framebuffer device. That means that even if you use tmux to run a program   
+as an unprivilaged user in one window and then switch to another window with  
+root user logged in, that unprivilaged user can see everything what root is  
+doing on the screen. If the unprivilaged user gets compromised this can  
+become a problem.
+
+A workaround for that is to use only dedicated windows in tmux for doing  
+sensitive work and disabling access to framebuffer as soon as you activate  
+these windows. It can be done with tmux hooks in `~/tmux.conf` like this:
+```
+set pane-focus-in "if -F '#{<=:#{window_index},1}' 'run-shell \"sudo /bin/chmod 600 /dev/fb0 \"'"
+set pane-focus-out "if -F '#{<=:#{window_index},1}' 'run-shell \"sudo /bin/chmod 660 /dev/fb0 \"'"
+```
+Now the framebuffer device will not be abailable even for users in video  
+group when window index is less then 2.
+
+Required `/etc/sudoers` entry for the above to work:
+```
+user1 ALL=(root) SETENV: NOPASSWD: /bin/chmod 660 /dev/fb0, /bin/chmod 600 /dev/fb0
+```
+
+The user that started the tmux session can't be running any programs that  
+are possible attach vectors - these should be run by separate users.
+
+-------------------------------------------------------------------------------
+
 
 # # building unifont
 
