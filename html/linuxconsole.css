@@ -1,21 +1,26 @@
 
+h1 {
+	font-size: 20px;
+}
+
 body {
 	background-color:#000;
 	font-family: Cantarell, sans-serif;  
 	margin: 20px auto;
-	max-width: 850px;
+	max-width: 900px;
 	line-height: 1.6;
-	font-size: 18px;
+	font-size: 16px;
 	color: #bbb;
-	padding: 0 10px;
+	padding: 0px 10px;
 }
 
 code, pre {
 	background-color: #111;
-	font-size: 15px;
+	font-size: 14px;
 	color: #ccc;
 	/* top and bottom padding is 1px, left and right is 6px */
 	padding: 1px 6px;
+	text-indent: -6px;
 }		   
 
 .container { position:relative; padding:0 0 0 210px; }
@@ -30,7 +35,7 @@ code, pre {
 the sidenav (less padding and a smaller font size) */ 
 @media screen and (max-height: 450px) {
 	.sidebar {padding-top: 15px;}
-	.sidebar a {font-size: 18px;}
+	.sidebar a {font-size: 16px;}
 }
 
 a:link {
@@ -56,6 +61,7 @@ a:active {
 	background-color: transparent;
 	text-decoration: underline;
 }
+
 
 /* not needed for now
 #header { border:1px solid #000; width:100px; height:20px; 
