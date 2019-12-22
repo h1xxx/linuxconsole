@@ -1,15 +1,15 @@
 
 # # web browser
 
-I tested many console webrowsers - w3m, lynx, links and elinks, and  
-definietly *w3m* has the best browsing experience for me. I really enjoy  
-using it - has vi key bindings, webpage rendering is intuitive, it can be  
+I tested many console web browsers - w3m, lynx, links and elinks, and  
+definitely *w3m* has the best browsing experience for me. I really enjoy  
+using it - it has vi key bindings, webpage rendering is intuitive, it can be  
 configured to show pictures, play videos or to download websites and  
 torrents.  
 
 Default settings in w3m are alright, just one thing bothered me - the color  
 of the links. By default it's blue and it's not that well visible in the  
-console. I change it to green, replacing it with image link color like that:
+console. I change it to green, switching it with image link color like that:
 ```
 anchor_color 	blue -> green
 image_color 	green -> blue
@@ -26,15 +26,15 @@ image/*; fim -a '%s'
 video/*; mpv -vo drm '%s'
 audio/*; mpv '%s'
 ```
-Now when you encounter a gif or image (to check the type press <u> when  
-cursor is over a link to see the url) you can press <shift>+<i> to open the  
-link with appropriate program.
+Now when you encounter a gif or an image (to check the type press \<u\> when  
+cursor is over a link to see the url) you can press \<shift\>+\<i\> to open  
+the link with appropriate program.
 
 There's also another way to open links in external programs - via  
 'external browsers'. This allows for adding many functionalities. There are  
 however only 10 slots for these. Each defined 'external browser' can be  
-invoked by pressing <ext browser number><esc><M> (in that order, note case in  
-m). The main external browser can be invoked without the number.  
+invoked by pressing \<ext browser number\>\<esc\>\<M\> (in that order, note  
+case in m). The main external browser can be invoked without the number.  
 
 To download a webpage under the link you can use this 'external browser':  
 `wget -p -k -E -e robots=off`  
@@ -52,7 +52,7 @@ To create a torrent file from a magnet link in rtorrent watch location:
 `sh -c 'echo "d10:magnet-uri${#0}:${0}e" > /tmp/watch_dir/magnetlink_$RANDOM$RANDOM$RANDOM.torrent'`  
 
 It's also useful to make aliases (and functions) for your shell to  
-convieniently use search engines directly from shell. Like this:  
+conveniently use search engines directly from shell. Like this:  
 ```
 alias w3m='w3m -B'		# start w3m on bookmark page
 w3d() { command w3m duckduckgo.com/lite/?kd=-1\&kp=-2\&kl=us-en\&q="$*"; }
@@ -69,7 +69,7 @@ You can now use `$ w3d atari 65xe` to quickly find search engine results, or
 
 The only one that works flawlessly with w3m is duckduckgo. Others are working  
 more or less ok, so it's still ok to type for example '!s your query' in ddg  
-(that's for startpage, recommended) to search other search engines. 
+(that's for startpage, recommended) to browse other search engines' results.
 
 
 -------------------------------------------------------------------------------
@@ -120,11 +120,11 @@ original youtube site.
 
 Hacker news works great in w3m without any customizations. You can't create  
 an account though as verification is required via google's javascript. You  
-can send an e-mail with an request for an account though. All other things  
+can send an e-mail with a request for an account though. All other things  
 work just great, apart from folding the comment threads. Oh, and downvoted  
 comments are not greyed out, so you need to think for yourself to determine  
-if the comment is low quality. Oh, and searching doesn't work, but you can  
-uses duckduckgo for that with `site:ycombinator.com tptacek` as an example.
+if the comment is low quality. Oh, and search doesn't work, but you can  
+use duckduckgo for that with `site:ycombinator.com tptacek` as an example.
 
 Reddit works ok in w3m to view posts. You just have to redirect all http  
 requests to old.reddit.com. To do that create a file `~/.w3m/siteconf` with  
@@ -135,7 +135,7 @@ substitute_url "https://old.reddit.com/"
 ```
 Didn't test creating an account, logging in or posting comments, but chances  
 are that this doesn't work in w3m. You can also try to use programs that show  
-reddit conent in terminal, like [rtv alternatives][40].
+reddit content in terminal, like [rtv alternatives][40].
 
 [40]:https://github.com/michael-lazar/rtv/blob/master/ALTERNATIVES.md
 
@@ -151,7 +151,7 @@ information from mpsyt:
 pylast needs to be installed for Last.fm support. See  
 https://github.com/pylast/pylast.
 
-	Use set to set your Last.fm login credenditals, e.g.  
+	Use set to set your Last.fm login credentials, e.g.  
 	set lastfm_username jane_doe.
 	Similarly, you also have to provide an API key and it's corresponding  
 	secret.

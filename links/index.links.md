@@ -2,7 +2,4 @@
 [configuration](./configuration.html)  
 [www](./www.html)  
 [programs](./programs.html)  
-[cheatsheets](./cheatsheets.html)  
 [faq](./faq.html)  
-[links](./links.html)  
-[about](./about.html)  

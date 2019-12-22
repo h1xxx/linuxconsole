@@ -2,7 +2,7 @@
 
 * Can you really use a computer just from the Linux console?
 
-	Most of the times. Obviously not everthing works though. My use cases  
+	Most of the times. Obviously not everything works though. My use cases  
 let me work from the command line only, but there are others that are  
 not suitable for that. Let there be no mistake here - every now and  
 then you'd need to start xorg to do something that requires "modern"  
@@ -12,11 +12,11 @@ line *yet*.
 
 * Does this require a lot of skill?
 
-	Not much in my opinion, but you do need to be stuborn enough to  
+	Not much in my opinion, but you do need to be stubborn enough to  
 figure out how things work and you need to know how to list  
 directories, change them and start w3m from shell. All other things  
-can be disovered through the search engines. Actually you can  
-duckduckgo these 3 things as well, so you just need to be stuborn.
+can be discovered through the search engines. Actually you can  
+duckduckgo these 3 things as well, so you just need to be stubborn.
 
 * Why would anyone want to limit themselves to using just a text console?
 
@@ -38,18 +38,18 @@ fun is also in overcoming them.
 
 	Sometimes yes, sometimes no. It depends. I didn't start using a  
 computer like that for efficiency, but because I enjoyed it and when I  
-started I never thought that I could be really that efficient. Turns out  
-I can, so I think most other people can too. The problem is that often when  
-I encounter something new I need to do a little research on how to use  
-it from the command line. This time spent on research makes me less  
-efficent, at least initially.
+started I never thought that I could be very efficient. Turns out  
+I can, so I think most other people can too. The problem is that often  
+when I encounter something new I need to do a little research on how to  
+use it from the command line. This time spent on research makes me less  
+efficient, at least initially.
 
 * What are the pros?
 
 	The biggest one is that I get to see how programs work. These details  
 are often hidden when you work with graphical interfaces. Another one is  
 that often I need to automate many things in my workflows and this makes  
-me much better in automating in general and thinking about different edge 
+me much better in automating in general and thinking about different edge  
 cases to create fail-safe processes. (fucking corp speak)
 
 * What are the cons?
@@ -58,10 +58,10 @@ cases to create fail-safe processes. (fucking corp speak)
 be possible to do. Also some people will make unreasonable assumptions  
 about your computer skills and black screen with text draws attention.
 
-* Why not just use a tiling manager?
+* Why not just use a tiling window manager?
 
-	I did that too (dwm ftw), but I like the feeling when I don't have to  
-use a lot of stacked software just to type letters. I like it when  
-the systems I use are as simple as possible and also Linux console just  
+	I did that too (dwm ftw), but I just don't like the feeling when I  
+have to use a lot of stacked software just to type letters. I like it when  
+the systems I use are as simple as possible. And also - Linux console just  
 feels so good.
 
