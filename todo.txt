@@ -3,5 +3,7 @@
 [finance](./finance.html)
 [my computing](./my_computing.html)
 
+contact
+links
 
 google maps
