@@ -1,7 +1,7 @@
 [getting started](./getting_started.html)  
 [configuration](./configuration.html)  
 [www](./www.html)  
-[multimedia](./multimedia.html)  
+[programs](./programs.html)  
 [cheatsheets](./cheatsheets.html)  
 [faq](./faq.html)  
 [links](./links.html)  
