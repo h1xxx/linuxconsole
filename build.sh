@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+echo cleaning old build...
+rm build/*
 
 for content_file in content/*; do
 	
