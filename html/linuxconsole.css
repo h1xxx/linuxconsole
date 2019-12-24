@@ -1,42 +1,126 @@
 
 h1 {
-	font-size: 20px;
+	font-size: 1.3em;
 }
 
 body {
 	background-color:#000;
-	font-family: Cantarell, sans-serif;  
-	margin: 20px auto;
-	max-width: 900px;
-	line-height: 1.6;
-	font-size: 16px;
 	color: #bbb;
-	padding: 0px 10px;
+	font-family: Cantarell, sans-serif;  
+	line-height: 1.6;
+
+	font-size: 1em;
+	margin: 1.1em auto;
+	width: 90em;
+	padding: 0em 1em;
 }
 
 code, pre {
 	background-color: #111;
-	font-size: 14px;
+	font-size: 1.05em;
 	color: #ccc;
 	/* top and bottom padding is 1px, left and right is 6px */
-	padding: 1px 6px;
-	text-indent: -6px;
+	padding: 0.2em 0.5em;
+	text-indent: -0.5em;
+	width: 60em;
 }		   
 
-.container { position:relative; padding:0 0 0 210px; }
+.container { 
+	position: relative; 
+	padding:0 0 0 10em; }
+
 #sidebar {
-	position:absolute;
-	top:32px; bottom:0; left:0;
-	width:200px;
-	background-color:#000;
+	position: absolute;
+	font-size: 1em;
+	top: 3em; bottom: 0; left: 0;
+	width: 10em;
+	background-color: #000;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of 
+/* On smaller screens, where height is less than xxxpx, change the style of 
 the sidenav (less padding and a smaller font size) */ 
-@media screen and (max-height: 450px) {
-	.sidebar {padding-top: 15px;}
-	.sidebar a {font-size: 16px;}
+@media (max-width: 1000px) {
+
+	h1 {
+		font-size: 1em;
+	}
+
+	body {
+		background-color:#000;
+		color: #bbb;
+		//font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+		font-family: Tahoma, Geneva, sans-serif;
+
+		line-height: 1.6;
+
+		font-size: 0.5em;
+		font-weight: 300;
+		margin: 0.01em;
+		width: 100%;
+		padding: 0.2em 0.5em;
+
+		white-space: no-wrap;
+		//text-indent: -0.5em;
+	}
+	
+	code, pre {
+		background-color: #111;
+		font-size: 1.2em;
+		color: #ccc;
+		/* top and bottom padding is 1px, left and right is 6px */
+		padding: 0.2em 0.5em;
+		text-indent: -0.5em;
+		width: 100%;
+	}		   
+
+	.container { 
+		position: static; 
+		padding:0 0 0 10em; }
+
+	#sidebar {
+		position: static;
+		font-size: 1em;
+		top: 3em; bottom: 0; left: 0;
+		width: 100%;
+	}
 }
+
+a:link {
+	color: #666;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #666;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #666;
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #666;
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+
+/* not needed for now
+#header { border:1px solid #000; width:100px; height:20px; 
+	margin:0 0 5px 0;
+}
+#content { border:1px solid #000; width:100px; height:50px;
+	margin:5px 0 5px 0;
+}
+#footer { border:1px solid #000; width:100px; height:20px;
+	margin:5px 0 0 0;
+}
+*/
 
 a:link {
 	color: #666;

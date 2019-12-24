@@ -8,7 +8,7 @@ provide a file or a directory with music as an argument.
 
 Be sure for the user running mpv to be in `audio` and `video` groups.  
 
-Great list of radio stations with streaming service can be found [here][00].
+Great list of radio stations with streaming service can be found [here][00].  
 To play the radio you just need to type, e.g.:
 ```
 $ mpv http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u
