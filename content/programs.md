@@ -1,28 +1,28 @@
 
 # # video and music
 
-I use only one program for that actually - mpv. It has everything I need,  
-including the ability to play streams. To play videos in the console you  
-just need to provide `--vo drm` argument.  To play music you just need to  
+I use only one program for that actually - mpv. It has everything I need,
+including the ability to play streams. To play videos in the console you
+just need to provide `--vo drm` argument.  To play music you just need to
 provide a file or a directory with music as an argument.
 
-Be sure for the user running mpv to be in `audio` and `video` groups.  
+Be sure for the user running mpv to be in `audio` and `video` groups.
 
-Great list of radio stations with streaming service can be found [here][00].  
+Great list of radio stations with streaming service can be found [here][00].
 To play the radio you just need to type, e.g.:
 ```
 $ mpv http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u
 ```
 
-Another player for console is mplayer, but it has tearing issues when playing  
+Another player for console is mplayer, but it has tearing issues when playing
 videos. I used this command:
 ```
 $ mplayer -vo fbdev2 -fs -zoom -xy 1920 -quiet -msglevel all=-1
 ```
-mpv takes over the whole screen when playing videos, but mplayer doesn't do  
-that, so you'd have to hide your tmux status bar because it will be flashing  
-with every change of text in it. To do that add a key binding in  
-`~/.tmux.conf` by appending the line with: `bind-key S set status`. Now you  
+mpv takes over the whole screen when playing videos, but mplayer doesn't do
+that, so you'd have to hide your tmux status bar because it will be flashing
+with every change of text in it. To do that add a key binding in
+`~/.tmux.conf` by appending the line with: `bind-key S set status`. Now you
 can toggle status bar by pressing \<prefix\>\<S\>.
 
 [00]:https://www.liveradio.ie/countries
@@ -31,7 +31,7 @@ can toggle status bar by pressing \<prefix\>\<S\>.
 
 # # images
 
-I use [fim][10] currently, but before that I used [fbi][11]. Works flawlessly.  
+I use [fim][10] currently, but before that I used [fbi][11]. Works flawlessly.
 
 
 [10]:https://savannah.nongnu.org/projects/fbi-improved
@@ -41,21 +41,21 @@ I use [fim][10] currently, but before that I used [fbi][11]. Works flawlessly.
 
 # # PDFs, DJVUs and e-books
 
-For PDFs and DJVUs I use [fbpdf][20] that also provides fbdjvu binary. It  
+For PDFs and DJVUs I use [fbpdf][20] that also provides fbdjvu binary. It
 works good enough not to start xorg to work with PDFs.
 
-For reading e-books in epub format I use w3m. If the e-book is text only I use  
+For reading e-books in epub format I use w3m. If the e-book is text only I use
 einfo from [ebook-tools][21] like this:
 ```
 einfo -pp book1.epub | \w3m -T text/html
 ```
 
-If e-book contains pictures or is pretty long it's good to extract it with  
-unzip, locate the index file and open it with w3m. The index file location and  
+If e-book contains pictures or is pretty long it's good to extract it with
+unzip, locate the index file and open it with w3m. The index file location and
 name can be different for each e-book, but it's not hard to find usually.
 
-I don't use calibre, but I have extracted one python script from there -  
-`ebook-convert`. It's really useful to convert different types of e-books and  
+I don't use calibre, but I have extracted one python script from there -
+`ebook-convert`. It's really useful to convert different types of e-books and
 also to dump them into PDF.
 
 [20]:https://sourceforge.net/projects/ebook-tools/
@@ -65,7 +65,7 @@ also to dump them into PDF.
 
 # # camera and QR codes scanning
 
-To record video from camera ffmpeg with compiled in v4l2 support is great.  
+To record video from camera ffmpeg with compiled in v4l2 support is great.
 `v4l2-ctl` is available in `v4l-utils` package. Check out these commands:
 ```
 $ v4l2-ctl --list-devices			# list camera devices
@@ -86,7 +86,7 @@ For reading QR codes I use zbar with compiled in v4l support:
 ```
 zbarcam --nodisplay --prescale=1280x1024 /dev/video0
 ```
-`--nodisplay` is necessary because by default zbarcam will try to open  
-graphical window, which it cannot open, because Linux console. `--prescale` is  
+`--nodisplay` is necessary because by default zbarcam will try to open
+graphical window, which it cannot open, because Linux console. `--prescale` is
 useful to increase cam resolution to pick up QR code faster.
 
