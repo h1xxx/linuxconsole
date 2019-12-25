@@ -1,16 +1,14 @@
 
 # # font
 
-For me the choice of font is the most important one can make when living in
-the console. I've spent many hours testing different fonts and I have
-found the one that is perfect - [unifont][01].
+One of the most important choices one can make when living in the console is
+the choice of a font. I've spent many hours testing different ones and what I
+have found to be the best is [unifont][01].
 
-Of course this choice is highly subjective. I am perfectly aware of this and
-that's why every now and then I was questioning my choice, trying
-something different, just to be sure that someone else's subjective choice
-isn't better for me. I did that until I found this [page][02] containing
-a screenshot of a [terminal][03] with a font that was also on my personal
-computer. Since then I'm convinced I've made the right choice.
+Every now and then I was questioning my choice, trying different fonts,
+until I found this [page][02] containing a screenshot of a [terminal][03]
+with something like a unifont. Since then I'm convinced I've made the right
+choice.
 
 Cool thing about unifont is that you can put whatever glyphs (meaning
 characters) you need there. This is important as you are limited with the
