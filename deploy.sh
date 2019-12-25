@@ -5,11 +5,15 @@ set -euo pipefail
 
 deploy()
 {
-       rsync -avP --delete build/ root@vm0://var/www/linuxconsole.net
+       # ssh root@vm0 rm /var/www/linuxconsole.net/*
 
-       ssh root@vm0 chown -v -R root:nginx /var/www/linuxconsole.net
-       ssh root@vm0 chmod -v 750 /var/www/linuxconsole.net
-       ssh root@vm0 chmod -v 640 /var/www/linuxconsole.net/*
+       rsync -avP --checksum \
+		--no-perms --no-owner --no-group \
+		build/ root@vm0://var/www/linuxconsole.net/
+
+       ssh root@vm0 chown -c -R root:nginx /var/www/linuxconsole.net
+       ssh root@vm0 chmod -c 750 /var/www/linuxconsole.net
+       ssh root@vm0 chmod -c 640 /var/www/linuxconsole.net/*
 
        exit 0
 }
