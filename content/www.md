@@ -133,9 +133,37 @@ substitute_url "https://old.reddit.com/"
 ```
 Didn't test creating an account, logging in or posting comments, but chances
 are that this doesn't work in w3m. You can also try to use programs that show
-reddit content in terminal, like [rtv alternatives][40].
+reddit content in terminal, like [rtv alternatives][30].
 
-[40]:https://github.com/michael-lazar/rtv/blob/master/ALTERNATIVES.md
+[30]:https://github.com/michael-lazar/rtv/blob/master/ALTERNATIVES.md
+
+
+-------------------------------------------------------------------------------
+
+# # stack overflow et al
+
+Logging in from w3m works. Posting questions and answers probably works.
+Posting comments and voting don't work (because javascript). Creating an API
+key works.
+
+[socli][40] is probably great too, but currently [broken][41] and limited.
+```
+$ mkdir socli; cd socli
+$ virtualenv env
+$ . env/bin/activate
+$ pip install socli
+$ socli for loop in python
+No results found...
+$ git clone https://github.com/gautamkrishnar/socli 	# for latest patches
+$ cd socli
+$ git checkout refactoring
+$ pip install -r requirements.txt
+$ python -m socli for loop in python
+No results found...
+```
+
+[40]:https://github.com/gautamkrishnar/socli
+[41]:https://github.com/gautamkrishnar/socli/issues/163
 
 
 -------------------------------------------------------------------------------
