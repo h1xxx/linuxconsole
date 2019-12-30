@@ -21,9 +21,9 @@ zooming the image, but you can define other applications to handle that.
 File `~/.w3m/mailcap` contains information on how to handle different media
 types. Put these lines there:
 ```
-image/gif; mpv -vo drm '%s'
+image/gif; mpv --vo drm --loop '%s'
 image/*; fim -a '%s'
-video/*; mpv -vo drm '%s'
+video/*; mpv --vo drm --loop '%s'
 audio/*; mpv '%s'
 ```
 Now when you encounter a gif or an image (to check the type press \<u\> when
@@ -67,8 +67,9 @@ You can now use `$ w3d atari 65xe` to quickly find search engine results, or
 # # search engines
 
 The only one that works flawlessly with w3m is duckduckgo. Others are working
-more or less ok, so it's still ok to type for example '!s your query' in ddg
-(that's for startpage, recommended) to browse other search engines' results.
+more or less fine, so it's still ok to type for example '!s your query' in
+duckduckgo (that's for startpage redirection, recommended) to browse other
+search engines' results.
 
 -------------------------------------------------------------------------------
 
@@ -111,6 +112,18 @@ Invidio.us has all youtube videos without all the unnecessary javascript
 (this doesn't matter for w3m though) and is rendered way better by w3m than
 original youtube site.
 
+
+-------------------------------------------------------------------------------
+
+# # maps
+
+This is something I need to work on.
+
+When I need to see a location of a city I make this query in duckduckgo.com on
+w3m - `site:freecountrymaps.com berlin`. Far from perfect solution. Or even
+good tbh.
+
+I still fire up xorg to find the best route between map points.
 
 -------------------------------------------------------------------------------
 
