@@ -234,11 +234,24 @@ $ showconsolefont
 
 # # finding UTF-8 codes
 
-I couldn't find a single UTF-8 table on my system large enough to include all
-glyphs I'd be interested to see, but I was able to compile one from a few
-sources.
+If you see this character on the console � (U+FFFD) it means that you are
+missing a glyph in your font. To find out the code for this glyph copy it to
+the below echo command instead of the square:
+```
+$ echo ▓ | iconv -f utf-8 -t UNICODEBIG | xxd
+```
+This will show you the hex value of the code you need to put into your font.
+You can also copy the missing character to a file via tmux buffer and cat the
+file to iconv.
 
-You can check the file `/usr/share/consoletrans/utflist` from kbd package:
+I couldn't find a single UTF-8 table on my system large enough to include all
+glyphs I'd be interested to see or check description of, so I compiled one from
+a few sources and it is located [here][50].
+
+Some other locations of files with UTF-8 codes on Linux systems are listed
+below.
+
+File `/usr/share/consoletrans/utflist` from kbd package:
 ```
 $ emerge -a sys-apps/kbd # or
 $ pacman -S kbd
@@ -262,4 +275,6 @@ $ apt install libx11-data
 Vim also has a pretty cool UTF-8 table:
 `/usr/share/vim/vim81/doc/digraph.txt`
 
+
+[50]:./unicode_list.txt
 

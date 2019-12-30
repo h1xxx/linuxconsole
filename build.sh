@@ -5,7 +5,7 @@ set -euo pipefail
 echo cleaning old build...
 rm build/*
 
-for content_file in content/*; do
+for content_file in content/*.md; do
 	
 	name=$(basename $content_file .md)
 	build_file="build/$name.html"
@@ -23,8 +23,9 @@ for content_file in content/*; do
 
 done
 
-cp -av html/linuxconsole.css build
-cp -av html/robots.txt build
-cp -av sitemap/sitemap.xml build
+cp -av content/*.txt build/
+cp -av html/linuxconsole.css build/
+cp -av html/robots.txt build/
+cp -av sitemap/sitemap.xml build/
 
 echo build done.
