@@ -82,6 +82,22 @@ $ ffmpeg -thread_queue_size 1024 \
 	-i /dev/video0 output.mkv 		# record a/v with big buffer
 ```
 
+
+To just view video from the camera use mpv:
+```
+$ mpv --vo drm /dev/video0
+```
+Higher resolution:
+```
+$ mpv --vo drm --demuxer-lavf-o=video_size=1280x720 av://v4l2:/dev/video0
+```
+Higher resolution with enabled compression to fit into USB 2.0 bandwidth:
+```
+$ mpv --vo drm --demuxer-lavf-o=video_size=1280x720:input_format=mjpeg av://v4l2:/dev/video0
+```
+Again - `v4l2-ctl --list-formats-ext` will help to determine correct modes.
+
+
 For reading QR codes I use zbar with compiled in v4l support:
 ```
 zbarcam --nodisplay --prescale=1280x1024 /dev/video0
