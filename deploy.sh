@@ -5,8 +5,6 @@ set -euo pipefail
 
 deploy()
 {
-       # ssh root@vm0 rm /var/www/linuxconsole.net/*
-
        rsync -avP --checksum \
 		--no-perms --no-owner --no-group \
 		build/ root@vm0://var/www/linuxconsole.net/
@@ -14,6 +12,18 @@ deploy()
        ssh root@vm0 chown -c -R root:nginx /var/www/linuxconsole.net
        ssh root@vm0 chmod -c 750 /var/www/linuxconsole.net
        ssh root@vm0 chmod -c 640 /var/www/linuxconsole.net/*
+
+       rsync -avP --checksum \
+		--no-perms --no-owner --no-group \
+		./ root@vm0://var/git/lnxcons/
+
+       ssh root@vm0 chown -c -R root:nobody /var/git/lnxcons
+       ssh root@vm0 'find /var/git/lnxcons/ \
+       		-type d \
+		-exec chmod -c 750 {} \;'
+       ssh root@vm0 'find /var/git/lnxcons/ \
+       		-type f \
+		-exec chmod -c 640 {} \;'
 
        exit 0
 }
