@@ -30,7 +30,8 @@ ssl_deploy_c()
                c=${in:$i:1}
                c_i=$(echo -n "${c}" | od -i -A n)
                c_i=$((c_i + 1))
-               c_x=$(printf "0x%x\n" $c_i)
+               [ $c_i -lt 16 ] &&  c_x=$(printf "0x0%x\n" $c_i)
+               [ $c_i -ge 16 ] &&  c_x=$(printf "0x%x\n" $c_i)
                echo -n "$c_x "
 
        done
