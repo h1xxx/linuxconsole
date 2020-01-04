@@ -5,7 +5,7 @@ press \<ctrl\>+\<alt\>+\<F1\> (or \<F2\>) to get into the Linux console. And
 that's it really. You can now ignore gui and use text only interface to your
 computer.
 
-To make the console as comfortable as any other tiling windows manager use
+To make the console as comfortable as any other tiling window manager use
 tmux.
 
 Next step is to [configure][1] your console and after that to setup tools 
