@@ -6,13 +6,14 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-<url><loc>https://linuxconsole.net</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/www.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/faq.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/index.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/configuration.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/programs.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/contact.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
-<url><loc>https://linuxconsole.net/getting_started.html</loc><lastmod>2019-12-30T09:58:38+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/faq.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/www.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/index.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/repos.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/contact.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/configuration.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/getting_started.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
+<url><loc>https://linuxconsole.net/programs.html</loc><lastmod>2020-01-04T23:46:19+00:00</lastmod></url>
 <url><loc>https://linuxconsole.net/unicode_list.txt</loc><lastmod>2019-12-30T00:05:50+00:00</lastmod></url>
 </urlset>
