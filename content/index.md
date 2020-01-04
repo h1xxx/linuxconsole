@@ -19,3 +19,8 @@ time you've visited checkout the git history or the RSS feed.
 
 **This site was optimized to be viewed in w3m web browser.**
 
+**Everything published on the linuxconsole.net domain is under [WTFPL version 2
+licence][0] with no warranties whatsoever.**
+
+[0]:http://www.wtfpl.net/txt/copying
+
