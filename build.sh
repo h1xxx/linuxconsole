@@ -26,6 +26,7 @@ done
 cp -av content/*.txt build/
 cp -av html/linuxconsole.css build/
 cp -av html/robots.txt build/
+cp -av html/favicon.ico build/
 cp -av sitemap/sitemap.xml build/
 
 echo build done.
