@@ -1,12 +1,65 @@
 
+# # display
+
+Resolution can be changed during boot time by providing below kernel
+parameters. You can set multiple `video` values. Documentation for
+this is located [here][00]:
+```
+video=1920x1080M@60m		# set resolution on all displays
+video=DP-1:1920x1080M@70m	# set resolution on display DP-1
+video=LVDS-1:d			# disable laptop display
+```
+
+To list available displays look for directories with a prefix cardN- in output
+of this command: `$ ls /sys/class/drm/`.
+
+Setterm is useful for configuring your console. Be sure to run it in tty i.e.
+outside of tmux.
+
+Power off display after 3 minutes: `$ setterm -blank 3`.
+
+Change background to blue and font to red:
+```
+$ setterm --background blue --store	# can use '4' instead of "blue"
+$ setterm --foreground red --store	# can use '1' instead of "red"
+```
+All 16 console colors (along with other useful information about console
+configuration) are defined in `man 4 console_codes`.
+
+To disable cursor blinking run this somewhere in your boot process:  
+`echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink`
+
+To have a block cursor you can use `tput cvvis` or `tput cnorm` for
+underline as a cursor . This doesn't work in tmux though as tmux sets the
+cursor in the console independently, overwriting console settings. To change it
+in tmux add one of these lines to `.tmux.conf`:
+```
+set -g terminal-overrides "linux:cnorm=\e[?25h\e[?8c"	# for cvvis
+set -g terminal-overrides "linux:cnorm=\e[?25h\e[?0c"	# for cnorm (default)
+```
+
+Other possible parameters for tput are described in `man 5 terminfo`.
+
+If you'd like to see the escape sequences - they are supposed to be described
+in `man 4 console_codes`, but it's pretty hard there to find a sequence you
+are after. It's easier to get a tput parameter from `man 5 terminfo`,
+redirect stdout from tput to a file `tput cvvis > cvvis.bin` and to read the
+escape sequence with `vi`, `od -c`, `xd -c` or `sed -n 'l'`, but
+[obviously][01] not with `cat -v`.
+
+[00]:https://www.kernel.org/doc/html/v5.4-preprc-cpu/fb/modedb.html
+[01]:http://harmful.cat-v.org/cat-v
+
+-------------------------------------------------------------------------------
+
 # # font
 
 One of the most important choices one can make when living in the console is
 the choice of a font. I've spent many hours testing different ones and what I
-have found to be the best is [unifont][01].
+have found to be the best is [unifont][11].
 
 Every now and then I was questioning my choice, trying different fonts,
-until I found this [page][02] containing a screenshot of a [terminal][03]
+until I found this [page][12] containing a screenshot of a [terminal][13]
 with something like a unifont. Since then I'm convinced I've made the right
 choice.
 
@@ -30,37 +83,9 @@ arch linux:	/etc/vconsole.conf		FONT=Unifont-APL8x16
 debian:		/etc/default/console-setup	FONTFACE=Unifont-APL8x16
 ```
 
-[01]:https://en.wikipedia.org/wiki/Unifont_CSUR
-[02]:https://en.wikipedia.org/wiki/Dennis_Ritchie
-[03]:https://en.wikipedia.org/wiki/File:Version_7_Unix_SIMH_PDP11_Emulation_DMR.png
-
--------------------------------------------------------------------------------
-
-# # cursor
-
-To disable cursor blinking run this somewhere in your boot process:  
-`echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink`
-
-To have a block cursor you can use `tput cvvis` and `tput cnorm` for
-underline as a cursor . This doesn't work in tmux though as tmux sets the
-cursor in the console independently, changing console settings. To change it
-in tmux add one of these lines to `.tmux.conf`:
-```
-set -g terminal-overrides "linux:cnorm=\e[?25h\e[?8c"	# for cvvis
-set -g terminal-overrides "linux:cnorm=\e[?25h\e[?0c"	# for cnorm (default) 
-```
-
-Other possible parameters for tput are described in `man 5 terminfo`.
-
-If you'd like to see the escape sequences - they are supposed to be described
-in `man 4 console_codes`, but it's pretty hard there to find a sequence you
-are after. It's easier to get a tput parameter from `man 5 terminfo`,
-redirect stdout from tput to a file `tput cvvis > cvvis.bin` and to read the
-escape sequence with `vi`, `od -c`, `xd -c` or `sed -n 'l'`, but
-[obviously][11] not with `cat -v`.
-
-[11]:http://harmful.cat-v.org/cat-v
-
+[11]:https://en.wikipedia.org/wiki/Unifont_CSUR
+[12]:https://en.wikipedia.org/wiki/Dennis_Ritchie
+[13]:https://en.wikipedia.org/wiki/File:Version_7_Unix_SIMH_PDP11_Emulation_DMR.png
 
 -------------------------------------------------------------------------------
 
@@ -104,7 +129,7 @@ $ echo 'kernel.printk = 7 4 1 4' > /etc/sysctl.d/kernel_msgs.conf
 
 -------------------------------------------------------------------------------
 
-# # users
+# # users and security
 
 To be able to play videos in your Linux console and listen to audio you'll
 need to add a user doing those things to `audio` and `video` groups.
@@ -138,6 +163,13 @@ are a possible attack vectors (like browsers, e-mail clients, even [baroque
 text editors][30]) - these should be run by separate users.
 
 [30]:https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
+
+-------------------------------------------------------------------------------
+
+# # sound
+
+Disable the damn beep on keypress: `$ setterm -blength 0` or unload and
+blacklist the pcspkr module completely.
 
 -------------------------------------------------------------------------------
 
@@ -246,7 +278,7 @@ file to iconv.
 
 I couldn't find a single UTF-8 table on my system large enough to include all
 glyphs I'd be interested to see or check description of, so I compiled one from
-a few sources and it is located [here][50].
+a few sources and it is located [here][60].
 
 Some other locations of files with UTF-8 codes on Linux systems are listed
 below.
@@ -276,5 +308,5 @@ Vim also has a pretty cool UTF-8 table:
 `/usr/share/vim/vim81/doc/digraph.txt`
 
 
-[50]:./unicode_list.txt
+[60]:./unicode_list.txt
 
