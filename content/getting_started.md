@@ -6,7 +6,21 @@ that's it really. You can now ignore gui and use text only interface to your
 computer.
 
 To make the console as comfortable as any other tiling window manager use
-tmux.
+tmux. There are plenty of tmux tutorials, but don't overlook excellent tmux
+manpage - you really just need to read 'Description' and 'Default key bindings'
+sections at the beginning to get started.
+
+One small recommendation I have when configuring tmux is to change the default
+key binding for 'prefix' key to '<ctrl>+j' in ~/tmux.conf like that:
+```
+unbind C-b
+set -g prefix C-j
+bind j send-prefix
+```
+The rationale is that it's much faster, because your index finger rests on
+letter j almost at all times (it does, right?), so it makes sense to use it as
+a key-binding you will use probably most frequently. Also - it doesn't
+interfere with readline shortcuts, so it's pretty safe too.
 
 Next step is to [configure][1] your console and after that to setup tools 
 to interact with [www][2]. Other useful console programs are described in
