@@ -1,7 +1,9 @@
 
 # # display
 
-Resolution can be changed during boot time by providing below kernel
+## resolution
+
+Resolution can be changed during boot-time by providing below kernel
 parameters. You can set multiple `video` values. Documentation for
 this is located [here][00]:
 ```
@@ -13,21 +15,28 @@ video=LVDS-1:d			# disable laptop display
 To list available displays look for directories with a prefix cardN- in output
 of this command: `$ ls /sys/class/drm/`.
 
+## setterm
+
 Setterm is useful for configuring your console. Be sure to run it in tty i.e.
 outside of tmux.
 
-Power off display after 3 minutes: `$ setterm -blank 3`.
+Power off display after 3 minutes: `$ setterm -blank 3`. Doesn't work when xorg
+is running.
 
 Change background to blue and font to red:
 ```
 $ setterm --background blue --store	# can use '4' instead of "blue"
 $ setterm --foreground red --store	# can use '1' instead of "red"
 ```
-All 16 console colors (along with other useful information about console
-configuration) are defined in `man 4 console_codes`.
+All 16 console colors are defined in `man 4 console_codes` along with other
+useful information about console configuration.
+
+## cursor
 
 To disable cursor blinking run this somewhere in your boot process:  
-`echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink`
+```
+$ echo 0 > /sys/devices/virtual/graphics/fbcon/cursor_blink
+```
 
 To have a block cursor you can use `tput cvvis` or `tput cnorm` for
 underline as a cursor . This doesn't work in tmux though as tmux sets the
@@ -50,6 +59,7 @@ escape sequence with `vi`, `od -c`, `xd -c` or `sed -n 'l'`, but
 [00]:https://www.kernel.org/doc/html/v5.4-preprc-cpu/fb/modedb.html
 [01]:http://harmful.cat-v.org/cat-v
 
+
 -------------------------------------------------------------------------------
 
 # # font
@@ -68,10 +78,10 @@ characters) you need there. This is important as you are limited with the
 amount of glyphs console can display to 512. So if you happen to often see
 question marks on white background instead of a character it means it would
 be a good idea to include that character in your console font. Check out the
-build instructions below.
+build instructions further below.
 
 Console fonts are located in `/usr/share/kbd/consolefonts` or in
-`/usr/share/consolefonts`. You can try others by typing
+`/usr/share/consolefonts`. You can try fonts by typing
 `setfont /path/to/font.psf.gz` or `setfont ter-u16n` as an example. To get
 back to default font type `setfont` with no arguments.
 
@@ -86,6 +96,7 @@ debian:		/etc/default/console-setup	FONTFACE=Unifont-APL8x16
 [11]:https://en.wikipedia.org/wiki/Unifont_CSUR
 [12]:https://en.wikipedia.org/wiki/Dennis_Ritchie
 [13]:https://en.wikipedia.org/wiki/File:Version_7_Unix_SIMH_PDP11_Emulation_DMR.png
+
 
 -------------------------------------------------------------------------------
 
@@ -127,6 +138,7 @@ To make this persistent do:
 $ echo 'kernel.printk = 7 4 1 4' > /etc/sysctl.d/kernel_msgs.conf
 ```
 
+
 -------------------------------------------------------------------------------
 
 # # users and security
@@ -164,12 +176,14 @@ text editors][30]) - these should be run by separate users.
 
 [30]:https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
 
+
 -------------------------------------------------------------------------------
 
 # # sound
 
 Disable the damn beep on keypress: `$ setterm -blength 0` or unload and
 blacklist the pcspkr module completely.
+
 
 -------------------------------------------------------------------------------
 
@@ -262,13 +276,14 @@ $ showconsolefont
 8. It's also good to make sure that you have UTF set in locales
 `$ cat /etc/locale.gen`
 
+
 -------------------------------------------------------------------------------
 
 # # finding UTF-8 codes
 
 If you see this character on the console � (U+FFFD) it means that you are
-missing a glyph in your font. To find out the code for this glyph copy it to
-the below echo command instead of the square:
+missing a glyph in your font. To find the code for this glyph copy it to the
+below echo command instead of the square:
 ```
 $ echo ▓ | iconv -f utf-8 -t UNICODEBIG | xxd
 ```
