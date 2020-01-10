@@ -1,18 +1,19 @@
 
 # # video and music
 
-I use only one program for that actually - mpv. It has everything I need,
-including the ability to play streams. To play videos in the console you
-just need to provide `--vo drm` argument.  To play music you just need to
-provide a file or a directory with music as an argument.
+I use only one program for that - mpv. It has everything I need, including
+the ability to play streams. To play videos in the console you just need to
+provide `--vo drm` argument.  To play music you just need to provide a file
+or a directory with music as an argument.
 
-Be sure for the user running mpv to be in `audio` and `video` groups.
+Be sure for the user running mpv to be in `audio` and `video` groups. Also - 
+mpv won't play videos with `--vo drm` if xorg is running.
 
-Great list of radio stations with streaming service can be found [here][00].
-To play the radio you just need to type, e.g.:
+To play the stream radio (or any other stream) type, e.g.:
 ```
 $ mpv http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u
 ```
+Great list of radio stations with streaming service can be found [here][00].
 
 Another player for console is mplayer, but it has tearing issues when playing
 videos. I used this command:
@@ -27,15 +28,18 @@ can toggle status bar by pressing \<prefix\>\<S\>.
 
 [00]:https://www.liveradio.ie/countries
 
+
 -------------------------------------------------------------------------------
 
 # # images
 
-I use [fim][10] currently, but before that I used [fbi][11]. Works flawlessly.
+I use [fim][10] currently, but before that I used [fbi][11]. Both work
+flawlessly.
 
 
 [10]:https://savannah.nongnu.org/projects/fbi-improved
 [11]:https://www.kraxel.org/blog/linux/fbida
+
 
 -------------------------------------------------------------------------------
 
@@ -60,6 +64,15 @@ also to dump them into PDF.
 
 [20]:https://sourceforge.net/projects/ebook-tools/
 [21]:https://github.com/aligrudi/fbpdf
+
+
+-------------------------------------------------------------------------------
+
+# # mail
+
+I use mutt and I don't have a need for anything else to read my mails. Mutt's
+great. I also don't think that neomutt is any better.
+
 
 -------------------------------------------------------------------------------
 

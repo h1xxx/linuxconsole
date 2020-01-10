@@ -11,7 +11,7 @@ manpage - you really just need to read 'Description' and 'Default key bindings'
 sections at the beginning to get started.
 
 One small recommendation I have when configuring tmux is to change the default
-key binding for 'prefix' key to '<ctrl>+j' in ~/tmux.conf like that:
+key binding for 'prefix' key to '\<ctrl\>+j' in ~/tmux.conf like that:
 ```
 unbind C-b
 set -g prefix C-j
