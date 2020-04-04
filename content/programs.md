@@ -37,6 +37,12 @@ I use [fim][10] currently, but before that I used [fbi][11]. Both work
 flawlessly.
 
 
+# # plotting
+
+primes 1 1000 | gnuplot -p -e 'set term png; set output "plot2.png"; plot
+"/dev/stdin"'
+
+
 [10]:https://savannah.nongnu.org/projects/fbi-improved
 [11]:https://www.kraxel.org/blog/linux/fbida
 
@@ -62,8 +68,8 @@ I don't use calibre, but I have extracted one python script from there -
 `ebook-convert`. It's really useful to convert different types of e-books and
 also to dump them into PDF.
 
-[20]:https://sourceforge.net/projects/ebook-tools/
-[21]:https://github.com/aligrudi/fbpdf
+[20]:https://github.com/aligrudi/fbpdf
+[21]:https://sourceforge.net/projects/ebook-tools/
 
 
 -------------------------------------------------------------------------------
