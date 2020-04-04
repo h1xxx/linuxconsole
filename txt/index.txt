@@ -1,6 +1,6 @@
 # linuxconsole.net
 
-<work in progress & "watnot'>
+<work in progress>
 
 Welcome.
 
@@ -22,7 +22,7 @@ time you've visited checkout the git history or the RSS feed.
 **This site was optimized to be viewed in w3m web browser.**
 
 **Everything published under the linuxconsole.net domain is licensed with
-[WTFPL v2 licence][0] with no warranties whatsoever.**
+[WTFPL v2 licence][x0] with no warranties whatsoever.**
 
-[0]:http://www.wtfpl.net/txt/copying
+[x00]:http://www.wtfpl.net/txt/copying
 

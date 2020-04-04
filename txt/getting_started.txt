@@ -22,9 +22,9 @@ letter j almost at all times (it does, right?), so it makes sense to use it as
 a key-binding you will use probably most frequently. Also - it doesn't
 interfere with readline shortcuts, so it's pretty safe too.
 
-Next step is to [configure][1] your console and after that to setup tools 
-to interact with [www][2]. Other useful console programs are described in
-[programs][3] section.
+Next step is to [configure][x01] your console and after that to setup tools 
+to interact with [www][x02]. Other useful console programs are described in
+[programs][x03] section.
 
 Breaking the habit of going to xorg to check some things in a graphical
 browser was the hardest part for me in converting to using computer in text
@@ -32,7 +32,7 @@ only mode. Damn those habits are hard to get rid of, but now that I don't
 have to use gui my life is happier and full of joy. I wish you the same.
 
 
-[1]:./configuration.html
-[2]:./www.html
-[3]:./programs.html
+[x01]:./configuration.html
+[x02]:./www.html
+[x03]:./programs.html
 
