@@ -1,9 +1,10 @@
-#!/bin/mksh
+#!/bin/ksh
 
-set -euo pipefail
+set -eu
 
 echo cleaning old build...
-rm build/*
+rm -r build
+mkdir build
 
 for content_file in content/*.md; do
 	
@@ -28,5 +29,8 @@ cp -av html/linuxconsole.css build/
 cp -av html/robots.txt build/
 cp -av html/favicon.ico build/
 cp -av sitemap/sitemap.xml build/
+
+mkdir -p build/files
+cp -av content/benchmarks build
 
 echo build done.
