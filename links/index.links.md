@@ -4,4 +4,5 @@
 [programs](./programs.html)  
 [faq](./faq.html)  
 [repos](./repos.html)  
+[links](./links.html)  
 [contact](./contact.html)  
