@@ -45,7 +45,7 @@ To play a video (e.g. from youtube):
 To view more information on youtube video (description, comments etc.):
 `mpsyt url`
 
-To add a magnet link to transmission  torrent client download list:
+To add a magnet link to transmission torrent client download list:
 `transmission-remote -n user1:password1 -a "$0"`
 
 To create a torrent file from a magnet link in rtorrent watch location:
@@ -70,6 +70,8 @@ The only one that works flawlessly with w3m is duckduckgo. Others are working
 more or less fine, so it's still ok to type for example '!s your query' in
 duckduckgo (that's for startpage redirection, recommended) to browse other
 search engines' results.
+
+Subpage of duckduckgo that's rendered the best is https://duckduckgo.com/lite.
 
 -------------------------------------------------------------------------------
 
@@ -130,8 +132,8 @@ I still fire up xorg to find the best route between map points.
 # # hacker news, reddit
 
 Hacker news works great in w3m without any customizations. You can't create
-an account though as verification is required via google's javascript. You
-can send an e-mail with a request for an account though. All other things
+an account though as verification is required via google's javascript. Still,
+you can send an e-mail with a request for an account. All other things
 work just great, apart from folding the comment threads. Oh, and downvoted
 comments are not greyed out, so you need to think for yourself to determine
 if the comment is low quality. Oh, and search doesn't work, but you can
@@ -177,6 +179,42 @@ No results found...
 
 [40]:https://github.com/gautamkrishnar/socli
 [41]:https://github.com/gautamkrishnar/socli/issues/163
+
+
+-------------------------------------------------------------------------------
+
+# # tor
+
+To visit .onion webpages from w3m you need to install privoxy and tor daemon.
+
+In `/etc/privoxy/config` add these lines to setup a tor proxy server:
+```
+listen-address 127.0.0.1:8080
+forward-socks5 / localhost:9050 .
+```
+
+To resolve .onion urls to tor IP adresses you need to put this in
+`/etc/tor/torrc`:
+```
+## Torified DNS
+DNSPort 127.0.0.1:53
+AutomapHostsOnResolve 1
+```
+...and add this entry at the end of `/etc/resolv.conf`:
+```
+nameserver 127.0.0.1
+```
+Make sure that all directories specified in torrc exist, otherwise tor will
+exit without any notification.
+
+And finally - start tor with `tor` command and privoxy with 
+`privoxy --no-daemon --user privoxy /etc/privoxy/config`.
+
+Now just open w3m, go to options and set option `use proxy` to yes.
+
+You can now open any onion site in linux console.
+
+WARNING! If you want or need the best anonymity use Tor Browser in Xorg.
 
 
 -------------------------------------------------------------------------------
