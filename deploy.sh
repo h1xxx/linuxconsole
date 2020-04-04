@@ -1,27 +1,31 @@
-#!/bin/mksh
+#!/bin/ksh
 
-set -euo pipefail
+set -eu
 
 
 deploy()
 {
        rsync -avP --checksum \
 		--no-perms --no-owner --no-group \
-		build/ root@vm0://var/www/linuxconsole.net/
+		build/ root@www://var/www/linuxconsole.net/
 
-       ssh root@vm0 chown -c -R root:nginx /var/www/linuxconsole.net
-       ssh root@vm0 chmod -c 750 /var/www/linuxconsole.net
-       ssh root@vm0 chmod -c 640 /var/www/linuxconsole.net/*
+       ssh root@www chown -c -R root:nginx /var/www/linuxconsole.net
+       ssh root@www chmod -c 750 /var/www/linuxconsole.net
+       ssh root@www chmod -c 640 /var/www/linuxconsole.net/*
+       ssh root@www chmod -c 755 /var/www/linuxconsole.net/files
+       ssh root@www chmod -c 755 /var/www/linuxconsole.net/benchmarks
+       ssh root@www chmod -c 644 /var/www/linuxconsole.net/files/*
+       ssh root@www chmod -c 644 /var/www/linuxconsole.net/benchmarks/*
 
        rsync -avP --checksum \
 		--no-perms --no-owner --no-group \
-		./ root@vm0://var/git/lnxcons/
+		./ root@www://var/git/lnxcons/
 
-       ssh root@vm0 chown -c -R root:nobody /var/git/lnxcons
-       ssh root@vm0 'find /var/git/lnxcons/ \
+       ssh root@www chown -c -R root:nobody /var/git/lnxcons
+       ssh root@www 'find /var/git/lnxcons/ \
        		-type d \
 		-exec chmod -c 750 {} \;'
-       ssh root@vm0 'find /var/git/lnxcons/ \
+       ssh root@www 'find /var/git/lnxcons/ \
        		-type f \
 		-exec chmod -c 640 {} \;'
 
@@ -64,7 +68,7 @@ ssl_deploy_d()
                o=$o$c
 
        done
-       openssl enc -base64 -d <<< $o
+       #openssl enc -base64 -d <<< $o
        exit 0
 }
 
