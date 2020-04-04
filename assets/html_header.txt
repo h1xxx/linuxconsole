@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title>linuxconsole.net</title>
+        <meta charset="UTF-8">
+</head>
+
+<style>
+	@font-face { 	font-family: 'unifont_ascii';
+	    		src: url('./unifont_ascii.woff2');
+	}
+	body {	max-width: 750px;
+		margin: 0 auto;
+		line-height: 1.2;
+		font-family: unifont_ascii;
+		color: #ddd;
+		background-color: #000;
+		-webkit-font-smoothing: none;
+		-webkit-text-stroke: 0.3px;
+	}
+	a {	color: #999;
+		background-color: transparent;
+		text-decoration: none;
+	}
+	a:hover { text-decoration: underline; }
+	h1 	{ text-align: center; }
+	h1, h2 	{ font-size: 1.2em; }
+	h3 	{ font-size: 1.1em; }
+</style>
+
+
+<body>
+
+<br>
+<a href="./index.html">back to main page</a><br>
+<a href="./www.html">www</a><br>
+<a href="./programs.html">programs</a><br>
+
+<br>
+This is some text in a paragraph.
+<br><br>
+This is 2 some text in a paragraph.
+<br>
+
+<p>This is some text in a paragraph.</p>
+<p>This is 2 some text in a paragraph.</p>
+
+
+<br><br>
+<br><br>
+
+## web browser<br><br>
+
+I tested many console web browsers - w3m, lynx, links and elinks, and<br>
+definitely *w3m* has the best browsing experience for me. I really enjoy<br>
+using it - it has vi key bindings, webpage rendering is intuitive, it can be<br>
+configured to show :[pictures], play videos or to download websites and<br>
+torrents.<br>
+<br>
+Default settings in w3m are alright, just one thing bothered me - the color<br>
+of the links. By default it's blue and it's not that well visible in the<br>
+console. I change it to green, switching it with image link color like that:<br>
+```<br>
+anchor_color 	blue -> green<br>
+image_color 	green -> blue<br>
+```<br>
+<br>
+Default image viewer `w3mimgdisplay` works great and I didn't have a need to<br>
+change it. It doesn't display gif images though and it doesn't allow for<br>
+zooming the image, but you can define other applications to handle that.<br>
+File `~/.w3m/mailcap` contains information on how to handle different media<br>
+types. Put these lines there:<br>
+```<br>
+&#09;image/gif; mpv --vo drm --loop '%s'<br>
+&nbsp;image/*; fim -a '%s'<br>
+&emsp;video/*; mpv --vo drm --loop '%s'<br>
+&emsp;audio/*; mpv '%s'<br>
+```<br>
+Now when you encounter a gif or an image (to check the type press \<u\> when<br>
+cursor is over a link to see the url) you can press \<shift\>+\<i\> to open<br>
+the link with appropriate program.<br>
+<br>
+There's also another way to open links in external programs - via<br>
+'external browsers'. This allows for adding many functionalities. There are<br>
+however only 10 slots for these. Each defined 'external browser' can be<br>
+invoked by pressing \<ext browser number\>\<esc\>\<M\> (in that order, note<br>
+case in m). The main external browser can be invoked without the number.<br>
+<br>
+To download a webpage under the link you can use this 'external browser':<br>
+`wget -p -k -E -e robots=off`<br>
+<br>
+To play a video (e.g. from youtube):<br>
+`mpv --vo drm`<br>
+<br>
+To view more information on youtube video (description, comments etc.):<br>
+`mpsyt url`<br>
+<br>
+To add a magnet link to transmission torrent client download list:<br>
+`transmission-remote -n user1:password1 -a "$0"`<br>
+<br>
+To create a torrent file from a magnet link in rtorrent watch location:<br>
+`sh -c 'echo "d10:magnet-uri${#0}:${0}e" > /tmp/watch_dir/magnetlink_$RANDOM$RANDOM$RANDOM.torrent'`<br>
+<br>
+It's also useful to make aliases (and functions) for your shell to<br>
+conveniently use search engines directly from shell. Like this:<br>
+```<br>
+alias w3m='w3m -B'		# start w3m on bookmark page<br>
+w3d() { command w3m duckduckgo.com/lite/?kd=-1\&kp=-2\&kl=us-en\&q="$*"; }<br>
+w3y() { command w3m invidio.us/results?search_query="$*"; }<br>
+w3yy() { command w3m youtube.com/results?search_query="$*"; }<br>
+```<br>
+You can now use `$ w3d atari 65xe` to quickly find search engine results, or<br>
+`$ w3y 56k modem sounds` to see youtube videos relevant for your phrase.<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # search engines<br>
+<br>
+The only one that works flawlessly with w3m is duckduckgo. Others are working<br>
+more or less fine, so it's still ok to type for example '!s your query' in<br>
+duckduckgo (that's for startpage redirection, recommended) to browse other<br>
+search engines' results.<br>
+<br>
+Subpage of duckduckgo that's rendered the best is https://duckduckgo.com/lite.<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # youtube <br>
+<br>
+Above you could see how to use youtube from w3m web browser.<br>
+<br>
+From the command line you can use youtube-dl to download the videos and watch <br>
+them with mpv.<br>
+```<br>
+$ youtube-dl invidio.us/watch?v=vPzDTfIb0DU<br>
+$ mpv --vo drm Faith\ No\ More\ -\ Easy\ \(Official\ Music\ Video\)-vPzDTfIb0DU.mkv<br>
+```<br>
+<br>
+You can also play youtube videos directly from mpv (don't forget "https://"):<br>
+```<br>
+$ mpv --vo drm  https://invidio.us/watch?v=vPzDTfIb0DU<br>
+```<br>
+<br>
+And you can just listen to music without downloading the videos, which is way<br>
+faster obviously:<br>
+```<br>
+$ youtube-dl -x invidio.us/watch?v=vPzDTfIb0DU<br>
+$ mpv Faith\ No\ More\ -\ Easy\ \(Official\ Music\ Video\)-vPzDTfIb0DU.opus<br>
+$ mpv --no-video https://invidio.us/watch?v=vPzDTfIb0DU<br>
+```<br>
+<br>
+To see comments and descriptions you can use mpsyt like this:<br>
+```<br>
+$ mpsyt<br>
+> /faith no more	# search for phrase<br>
+> c 3			# comments for search result number 3<br>
+> n			# next page of comments<br>
+> i 3			# info and description of the video<br>
+> 3			# play video<br>
+> help			# show other commands<br>
+```<br>
+<br>
+Invidio.us has all youtube videos without all the unnecessary javascript<br>
+(this doesn't matter for w3m though) and is rendered way better by w3m than<br>
+original youtube site.<br>
+<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # maps<br>
+<br>
+This is something I need to work on.<br>
+<br>
+When I need to see a location of a city I make this query in duckduckgo.com on<br>
+w3m - `site:freecountrymaps.com berlin`. Far from perfect solution. Or even<br>
+good tbh.<br>
+<br>
+I still fire up xorg to find the best route between map points.<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # hacker news, reddit<br>
+<br>
+Hacker news works great in w3m without any customizations. You can't create<br>
+an account though as verification is required via google's javascript. Still,<br>
+you can send an e-mail with a request for an account. All other things<br>
+work just great, apart from folding the comment threads. Oh, and downvoted<br>
+comments are not greyed out, so you need to think for yourself to determine<br>
+if the comment is low quality. Oh, and search doesn't work, but you can<br>
+use duckduckgo for that with `site:ycombinator.com tptacek` as an example.<br>
+<br>
+Reddit works ok in w3m to view posts. You just have to redirect all http<br>
+requests to old.reddit.com. To do that create a file `~/.w3m/siteconf` with<br>
+these lines:<br>
+```<br>
+url "https://www.reddit.com/"<br>
+substitute_url "https://old.reddit.com/"<br>
+```<br>
+Didn't test creating an account, logging in or posting comments, but chances<br>
+are that this doesn't work in w3m. You can also try to use programs that show<br>
+reddit content in terminal, like [rtv alternatives][30].<br>
+<br>
+[30]:https://github.com/michael-lazar/rtv/blob/master/ALTERNATIVES.md<br>
+<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # stack overflow et al<br>
+<br>
+Logging in from w3m works. Posting questions and answers probably works.<br>
+Posting comments and voting don't work (because javascript). Creating an API<br>
+key works.<br>
+<br>
+[socli][40] is probably great too, but currently [broken][41] and limited.<br>
+```<br>
+$ mkdir socli; cd socli<br>
+$ virtualenv env<br>
+$ . env/bin/activate<br>
+$ pip install socli<br>
+$ socli for loop in python<br>
+No results found...<br>
+$ git clone https://github.com/gautamkrishnar/socli 	# for latest patches<br>
+$ cd socli<br>
+$ git checkout refactoring<br>
+$ pip install -r requirements.txt<br>
+$ python -m socli for loop in python<br>
+No results found...<br>
+```<br>
+<br>
+[40]:https://github.com/gautamkrishnar/socli<br>
+[41]:https://github.com/gautamkrishnar/socli/issues/163<br>
+<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # tor<br>
+<br>
+To visit .onion webpages from w3m you need to install privoxy and tor daemon.<br>
+<br>
+In `/etc/privoxy/config` add these lines to setup a tor proxy server:<br>
+```<br>
+listen-address 127.0.0.1:8080<br><br>
+forward-socks5 / localhost:9050 .<br>
+```<br>
+<br>
+To resolve .onion urls to tor IP adresses you need to put this in<br>
+`/etc/tor/torrc`:<br>
+```<br>
+## Torified DNS<br>
+DNSPort 127.0.0.1:53<br>
+AutomapHostsOnResolve 1<br>
+```<br>
+...and add this entry at the end of `/etc/resolv.conf`:<br>
+```<br>
+nameserver 127.0.0.1<br>
+```<br>
+Make sure that all directories specified in torrc exist, otherwise tor will<br>
+exit without any notification.<br>
+<br>
+And finally - start tor with `tor` command and privoxy with <br>
+`privoxy --no-daemon --user privoxy /etc/privoxy/config`.<br>
+<br>
+Now just open w3m, go to options and set option `use proxy` to yes.<br>
+<br>
+You can now open any onion site in linux console.<br>
+<br>
+WARNING! If you want or need the best anonymity use Tor Browser in Xorg.<br>
+<br>
+<br>
+-------------------------------------------------------------------------------<br>
+<br>
+# # last.fm<br>
+<br>
+mpsyt has an interface to last.fm. Didn't use it yet, but here's some<br>
+information from mpsyt:<br>
+<br>
+```<br>
+pylast needs to be installed for Last.fm support. See<br>
+https://github.com/pylast/pylast.<br>
+
+	Use set to set your Last.fm login credentials, e.g.  <br>
+	set lastfm_username jane_doe.<br>
+	Similarly, you also have to provide an API key and it's corresponding  <br>
+	secret.<br>
+	An API key can be retrieved from  <br>
+	https://www.last.fm/api/account/create.<br>
+```<br>
+<br>
+</body>
+		font-size: 1.3em;
+		line-height: 1.2;
+		text-rendering: optimizeLegibility;
+	    src: url('./unifont_ascii.ttf'); /*URL to font*/
