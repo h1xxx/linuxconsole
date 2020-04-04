@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>linuxconsole.net</title>
+        <meta charset="UTF-8">
+</head>
+
+<style>
+	@font-face { 	font-family: 'unifont_ascii';
+	    		src: url('./unifont_ascii.woff2');
+	}
+	html, pre {	max-width: 750px;
+			margin: 0 auto;
+			line-height: 1.2;
+			font-family: unifont_ascii;
+			color: #bbb;
+			background-color: #000;
+			-webkit-font-smoothing: none;
+			-webkit-text-stroke: 0.3px;
+	}
+	a {		color: #999;
+			background-color: transparent;
+			text-decoration: none;
+	}
+	a:hover { 	text-decoration: underline; }
+</style>
+
+<body><pre>

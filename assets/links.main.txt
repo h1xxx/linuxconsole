@@ -1,0 +1,9 @@
+<a href="./getting_started.html">getting started</a><br />
+<a href="./configuration.html">configuration</a><br />
+<a href="./www.html">www</a><br />
+<a href="./programs.html">programs</a><br />
+<a href="./faq.html">faq</a><br />
+<a href="./repos.html">repos</a><br />
+<a href="./links.html">links</a><br />
+<a href="./contact.html">contact</a>
+

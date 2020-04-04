@@ -1,0 +1,1 @@
+<a href="./index.html">back to main page</a>						 <a href="./www.txt">txt version</a>
