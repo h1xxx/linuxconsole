@@ -1,8 +1,0 @@
-[getting started](./getting_started.html)  
-[configuration](./configuration.html)  
-[www](./www.html)  
-[programs](./programs.html)  
-[faq](./faq.html)  
-[repos](./repos.html)  
-[links](./links.html)  
-[contact](./contact.html)  

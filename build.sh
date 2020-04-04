@@ -2,35 +2,42 @@
 
 set -eu
 
-echo cleaning old build...
-rm -r build
-mkdir build
+echo '*** cleaning old build...'
+[ -d _build ] && rm -r _build
+mkdir -p _build
 
-for content_file in content/*.md; do
+txt2html()
+{
+	sed 's|&|\&amp;|g' $1 	|
+	sed 's|<|\&lt;|g'  	|
+	sed 's|>|\&gt;|g' 	|
+	sed "s|'|\&#39;|g"	|
+	sed 's|"|\&quot;|g'
+}
+
+for txt_file in txt/*.txt; do
 	
-	name=$(basename $content_file .md)
-	build_file="build/$name.html"
+	name=$(basename $txt_file .txt)
+	build_file="_build/${name}.html"
 
-	echo building $name...
+	echo "*** building ${name}..."
 
-	links_file="links/$name.links.md"
-	[ -f $links_file ] || links_file='links/back.links.md'
+	links_file="assets/links.${name}.html"
+	[ ! -f ${links_file} ] && links_file='assets/links.back.html'
 
-	cat html/html.head.txt > $build_file
-	cmark $links_file >> $build_file
-	echo '</div>' >> $build_file
-	cmark $content_file >> $build_file
-	echo '</body>' >> $build_file
+	cat assets/html.header.html 	> $build_file
+	cat $links_file 		>> $build_file
+	txt2html $txt_file		>> $build_file
+	cat assets/html.end.html 	>> $build_file
 
 done
 
-cp -av content/*.txt build/
-cp -av html/linuxconsole.css build/
-cp -av html/robots.txt build/
-cp -av html/favicon.ico build/
-cp -av sitemap/sitemap.xml build/
+echo '*** copying files...'
+cp -a assets/robots.txt			_build/
+cp -a assets/favicon.ico 		_build/
+cp -a txt/*				_build/
 
-mkdir -p build/files
-cp -av content/benchmarks build
+cp -a files/				_build/
+cp -a benchmarks/			_build
 
-echo build done.
+echo '*** build done.'
