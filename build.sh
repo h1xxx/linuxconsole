@@ -60,6 +60,7 @@ done
 echo '*** copying files...'
 cp -a assets/robots.txt			_build/
 cp -a assets/favicon.ico 		_build/
+cp -a assets/unifont_ascii.ttf	 	_build/
 cp -a txt/*				_build/
 
 cp -a files/				_build/
