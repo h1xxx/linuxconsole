@@ -22,7 +22,7 @@ time you've visited checkout the git history or the RSS feed.
 **This site was optimized to be viewed in w3m web browser.**
 
 **Everything published under the linuxconsole.net domain is licensed with
-[WTFPL v2 licence][x0] with no warranties whatsoever.**
+WTFPL[x00] v2 licence with no warranties whatsoever.**
 
 [x00]:http://www.wtfpl.net/txt/copying
 

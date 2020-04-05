@@ -5,7 +5,7 @@
 
 Resolution can be changed during boot-time by providing below kernel
 parameters. You can set multiple `video` values. Documentation for
-this is located [here][x00]:
+this is located here[x00]:
 ```
 video=1920x1080M@60m		# set resolution on all displays
 video=DP-1:1920x1080M@70m	# set resolution on display DP-1
@@ -54,7 +54,7 @@ in `man 4 console_codes`, but it's pretty hard there to find a sequence you
 are after. It's easier to get a tput parameter from `man 5 terminfo`,
 redirect stdout from tput to a file `tput cvvis > cvvis.bin` and to read the
 escape sequence with `vi`, `od -c`, `xd -c` or `sed -n 'l'`, but
-[obviously][x01] not with `cat -v`.
+obviously[x01] not with `cat -v`.
 
 [x00]:https://www.kernel.org/doc/html/v5.4-preprc-cpu/fb/modedb.html
 [x01]:http://harmful.cat-v.org/cat-v
@@ -66,10 +66,10 @@ escape sequence with `vi`, `od -c`, `xd -c` or `sed -n 'l'`, but
 
 One of the most important choices one can make when living in the console is
 the choice of a font. I've spent many hours testing different ones and what I
-have found to be the best is [unifont][x11].
+have found to be the best is unifont[x11].
 
 Every now and then I was questioning my choice, trying different fonts,
-until I found this [page][x12] containing a screenshot of a [terminal][x13]
+until I found this page[x12] containing a screenshot of a terminal[x13]
 with something like a unifont. Since then I'm convinced I've made the right
 choice.
 
@@ -171,8 +171,8 @@ user1 ALL=(root) SETENV: NOPASSWD: /bin/chmod 660 /dev/fb0, /bin/chmod 600 /dev/
 ```
 
 The user that started the tmux session shouldn't be running any programs that
-are a possible attack vectors (like browsers, e-mail clients, even [baroque
-text editors][x30]) - these should be run by separate users.
+are a possible attack vectors (like browsers, e-mail clients, even baroque
+text editors[x30]) - these should be run by separate users.
 
 [x30]:https://github.com/numirias/security/blob/master/doc/2019-06-04_ace-vim-neovim.md
 
@@ -293,7 +293,7 @@ file to iconv.
 
 I couldn't find a single UTF-8 table on my system large enough to include all
 glyphs I'd be interested to see or check description of, so I compiled one from
-a few sources and it is located [here][60].
+a few sources and it is located here[x60].
 
 Some other locations of files with UTF-8 codes on Linux systems are listed
 below.
@@ -323,5 +323,5 @@ Vim also has a pretty cool UTF-8 table:
 `/usr/share/vim/vim81/doc/digraph.txt`
 
 
-[60]:./unicode_list.txt
+[x60]:./unicode_list.txt
 

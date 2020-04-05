@@ -1,10 +1,5 @@
 #!/bin/ksh
-
 set -eu
-
-echo '*** cleaning old build...'
-[ -d _build ] && rm -r _build
-mkdir -p _build
 
 txt2html()
 {
@@ -14,6 +9,35 @@ txt2html()
 	sed "s|'|\&#39;|g"	|
 	sed 's|"|\&quot;|g'
 }
+
+add_hrefs()
+{
+	FILE=$1
+	LINKS=$(grep '^\[x[0-f]\{2\}\]' "${FILE}" || :)
+
+	for reflink in $LINKS; do
+
+		ref=$(echo ${reflink} | cut -d':' -f1 | cut -c 3,4)
+		link=$(echo ${reflink} | cut -d':' -f2-)
+
+		# remove lines with link references
+		regex="^\[x$ref\]"
+		sed -i "/$regex/d" ${FILE}
+
+		# extract a word to be replaced with href
+		regex="[-_a-zA-Z0-9]*\[x$ref\]"
+		word=$(grep -o "$regex" ${FILE} | cut -d'[' -f1)
+
+		# create html hrefs
+		href="<a href=\"$link\">$word</a>"
+		sed -i "s|$regex|$href|g" ${FILE}
+	done
+}
+
+
+echo '*** cleaning old build...'
+[ -d _build ] && rm -r _build
+mkdir -p _build
 
 for txt_file in txt/*.txt; do
 	
@@ -29,6 +53,7 @@ for txt_file in txt/*.txt; do
 	cat $links_file 		>> $build_file
 	txt2html $txt_file		>> $build_file
 	cat assets/html.end.html 	>> $build_file
+	add_hrefs			$build_file
 
 done
 

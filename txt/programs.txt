@@ -13,7 +13,7 @@ To play the stream radio (or any other stream) type, e.g.:
 ```
 $ mpv http://lyd.nrk.no/nrk_radio_jazz_mp3_h.m3u
 ```
-Great list of radio stations with streaming service can be found [here][x00].
+Great list of radio stations with streaming service can be found here[x00].
 
 Another player for console is mplayer, but it has tearing issues when playing
 videos. I used this command:
@@ -33,7 +33,7 @@ can toggle status bar by pressing \<prefix\>\<S\>.
 
 # # images
 
-I use [fim][x10] currently, but before that I used [fbi][x11]. Both work
+I use fim[x10] currently, but before that I used fbi[x11]. Both work
 flawlessly.
 
 
@@ -51,11 +51,11 @@ primes 1 1000 | gnuplot -p -e 'set term png; set output "plot2.png"; plot
 
 # # PDFs, DJVUs and e-books
 
-For PDFs and DJVUs I use [fbpdf][x20] that also provides fbdjvu binary. It
+For PDFs and DJVUs I use fbpdf[x20] that also provides fbdjvu binary. It
 works good enough not to start xorg to work with PDFs.
 
 For reading e-books in epub format I use w3m. If the e-book is text only I use
-einfo from [ebook-tools][x21] like this:
+einfo from ebook-tools[x21] like this:
 ```
 einfo -pp book1.epub | \w3m -T text/html
 ```
