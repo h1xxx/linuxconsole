@@ -17,11 +17,11 @@ rsync -avP --checksum \
 	--no-perms --no-owner --no-group \
 	./ root@www://var/git/lnxcons/
 
-ssh root@www chown -c -R root:nobody /var/git/lnxcons
-ssh root@www 'find /var/git/lnxcons/ \
+ssh root@www chown -c -R root:nobody /var/git
+ssh root@www 'find /var/git/ \
 	-type d \
 	-exec chmod -c 750 {} \;'
-ssh root@www 'find /var/git/lnxcons/ \
+ssh root@www 'find /var/git/ \
 	-type f \
 	-exec chmod -c 640 {} \;'
 
