@@ -8,3 +8,9 @@ links
 google maps
 
 check redmine
+
+tips:
+cat /dev/zero > /dev/fb0
+bell on message
+touchtyping
+

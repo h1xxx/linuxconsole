@@ -5,7 +5,7 @@
 Welcome.
 
 This site is dedicated to using computers only through the console[x02] of
-Linux systems without any graphical display environments. 
+Linux systems without any graphical display environments. Like this[x03].
 
 If you're just intersted in terminal programs you can find some useful
 information here as well.
@@ -29,7 +29,7 @@ time you've visited checkout the git[x01] history.
 _______________________________________________________________________________
 
 
-This site was optimized to be viewed in w3m web browser.
+This site has been optimized for w3m 0.5.3 or above.
 
 Everything published under the linuxconsole.net domain is licensed with
 WTFPL[x00] v2 licence with no warranties whatsoever.
@@ -39,3 +39,4 @@ WTFPL[x00] v2 licence with no warranties whatsoever.
 [x00]:http://www.wtfpl.net/txt/copying
 [x01]:./repos.html
 [x02]:https://en.wikipedia.org/wiki/Linux_console
+[x03]:./files/linux_console.png
