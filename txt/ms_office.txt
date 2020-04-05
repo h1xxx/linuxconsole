@@ -4,6 +4,7 @@
 Index:
 
 * Microsoft Outlook
+* Microsoft Word
 * Microsoft Excel
 
 
