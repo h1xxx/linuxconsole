@@ -1,114 +1,126 @@
+*********************                   www                 *********************
 
-# # web browser
 
-I tested many console web browsers - w3m, lynx, links and elinks, and
-definitely *w3m* has the best browsing experience for me. I really enjoy
-using it - it has vi key bindings, webpage rendering is intuitive, it can be
-configured to show pictures, play videos or to download websites and
-torrents.
+Index:
 
-Default settings in w3m are alright, just one thing bothered me - the color
-of the links. By default it's blue and it's not that well visible in the
-console. I change it to green, switching it with image link color like that:
-```
-anchor_color 	blue -> green
-image_color 	green -> blue
-```
+* web browser
+* search engines
+* youtube
+* maps
+* hacker news, reddit
+* stack overflow et al
+* tor
 
-Default image viewer `w3mimgdisplay` works great and I didn't have a need to
-change it. It doesn't display gif images though and it doesn't allow for
-zooming the image, but you can define other applications to handle that.
-File `~/.w3m/mailcap` contains information on how to handle different media
-types. Put these lines there:
-```
-image/gif; mpv --vo drm --loop '%s'
-image/*; fim -a '%s'
-video/*; mpv --vo drm --loop '%s'
-audio/*; mpv '%s'
-```
-Now when you encounter a gif or an image (to check the type press \<u\> when
-cursor is over a link to see the url) you can press \<shift\>+\<i\> to open
-the link with appropriate program.
 
-There's also another way to open links in external programs - via
-'external browsers'. This allows for adding many functionalities. There are
-however only 10 slots for these. Each defined 'external browser' can be
-invoked by pressing \<ext browser number\>\<esc\>\<M\> (in that order, note
-case in m). The main external browser can be invoked without the number.
+******** web browser
 
-To download a webpage under the link you can use this 'external browser':
-`wget -p -k -E -e robots=off`
+Out of all the  console web browsers I tested (w3m, lynx, links and elinks) w3m
+provides the best browsing experience. It has vi key bindings, webpage rendering
+is intuitive, it can be configured to show pictures, play videos or to download
+websites and torrents.
 
-To play a video (e.g. from youtube):
-`mpv --vo drm`
+By default color of the links is blue and it's not that well visible on the
+console. Go to options (key <o>) and change it to green, switching it with image
+link color like that:
+	
+	anchor_color 	blue -> green
+	image_color 	green -> blue
 
-To view more information on youtube video (description, comments etc.):
-`mpsyt url`
+Default image viewer, w3mimgdisplay, is ok, but it doesn't display gif images
+and it doesn't allow for zooming the images. You can define other applications
+to handle that though. File ~/.w3m/mailcap contains information on how to handle
+different media types. Put these lines there:
+	
+	image/gif; mpv --vo=drm --loop '%s'
+	image/*; fim -a '%s'
+	video/*; mpv --vo=drm --loop '%s'
+	audio/*; mpv '%s'
 
-To add a magnet link to transmission torrent client download list:
-`transmission-remote -n user1:password1 -a "$0"`
+Now when you encounter a gif or an image you can press <shift>+<i> to open the
+link with appropriate program. To check the file type press <u> when cursor is
+over a link to see the url.
 
-To create a torrent file from a magnet link in rtorrent watch location:
-`sh -c 'echo "d10:magnet-uri${#0}:${0}e" > /tmp/watch_dir/magnetlink_$RANDOM$RANDOM$RANDOM.torrent'`
+There's also another way to open links in other programs - via external
+browsers. This allows for adding many cool functionalities. You can set them up
+in options.  Each defined external browser can be invoked by pressing
+<ext browser number><esc><M> (in that order, note the case in m). The main
+external browser can be invoked without the number.
 
-It's also useful to make aliases (and functions) for your shell to
-conveniently use search engines directly from shell. Like this:
-```
-alias w3m='w3m -B'		# start w3m on bookmark page
-w3d() { command w3m duckduckgo.com/lite/?kd=-1\&kp=-2\&kl=us-en\&q="$*"; }
-w3y() { command w3m invidio.us/results?search_query="$*"; }
-w3yy() { command w3m youtube.com/results?search_query="$*"; }
-```
-You can now use `$ w3d atari 65xe` to quickly find search engine results, or
-`$ w3y 56k modem sounds` to see youtube videos relevant for your phrase.
+Some ideas for external browsers:
+	
+	- download a webpage under the link
+		wget -pkEe robots=off
+	
+	- play a video (e.g. from invidio.us or youtube)
+		mpv --vo drm
+	
+	- view more information on youtube video (description, comments etc.)
+		mpsyt url
+	
+	- add a magnet link to transmission torrent client download list
+		transmission-remote -n user1:password1 -a "$0"
+	
+	- create a torrent file from a magnet link in rtorrent watch location:
+		sh -c 'echo "d10:magnet-uri${#0}:${0}e" > \
+			/tmp/watch_dir/magnetlink_$RANDOM$RANDOM.torrent'
+
+It's also useful to make aliases and functions in your shell to conveniently use
+search engines directly from command line. Like this:
+	
+	alias w3m='w3m -B'		# start w3m on bookmark page
+	w3d() { command w3m duckduckgo.com/lite/?kd=-1\&kp=-2\&kl=us-en\&q="$*"; }
+	w3y() { command w3m invidio.us/results?search_query="$*"; }
+	w3yy() { command w3m youtube.com/results?search_query="$*"; }
+
+You can now type '$ w3d atari 65xe' to quickly find search engine results, or
+'$ w3y 56k modem sounds' to see youtube videos relevant for your phrase.
+
 
 -------------------------------------------------------------------------------
 
-# # search engines
+
+******** search engines
 
 The only one that works flawlessly with w3m is duckduckgo. Others are working
 more or less fine, so it's still ok to type for example '!s your query' in
 duckduckgo (that's for startpage redirection, recommended) to browse other
 search engines' results.
 
-Subpage of duckduckgo that's rendered the best is https://duckduckgo.com/lite.
+Subpage of duckduckgo that's rendered the best is https://duckduckgo.com/lite,
+so put this one in a bookmark.
+
 
 -------------------------------------------------------------------------------
 
-# # youtube 
 
-Above you could see how to use youtube from w3m web browser.
+******** youtube 
 
-From the command line you can use youtube-dl to download the videos and watch 
-them with mpv.
-```
-$ youtube-dl invidio.us/watch?v=vPzDTfIb0DU
-$ mpv --vo drm Faith\ No\ More\ -\ Easy\ \(Official\ Music\ Video\)-vPzDTfIb0DU.mkv
-```
+Above you could see how to use youtube from w3m web browser. From the command
+line you can use youtube-dl to download the videos and watch them with mpv.
+	
+	$ youtube-dl invidio.us/watch?v=vPzDTfIb0DU
+	$ mpv --vo=drm Faith\ No\ More\ -\ Easy*-vPzDTfIb0DU.mkv
 
 You can also play youtube videos directly from mpv (don't forget "https://"):
-```
-$ mpv --vo drm  https://invidio.us/watch?v=vPzDTfIb0DU
-```
+	
+	$ mpv --vo drm  https://invidio.us/watch?v=vPzDTfIb0DU
 
 And you can just listen to music without downloading the videos, which is way
 faster obviously:
-```
-$ youtube-dl -x invidio.us/watch?v=vPzDTfIb0DU
-$ mpv Faith\ No\ More\ -\ Easy\ \(Official\ Music\ Video\)-vPzDTfIb0DU.opus
-$ mpv --no-video https://invidio.us/watch?v=vPzDTfIb0DU
-```
 
-To see comments and descriptions you can use mpsyt like this:
-```
-$ mpsyt
-> /faith no more	# search for phrase
-> c 3			# comments for search result number 3
-> n			# next page of comments
-> i 3			# info and description of the video
-> 3			# play video
-> help			# show other commands
-```
+	$ youtube-dl -x invidio.us/watch?v=vPzDTfIb0DU
+	$ mpv Faith\ No\ More\ -\ Easy*-vPzDTfIb0DU.opus
+	$ mpv --no-video https://invidio.us/watch?v=vPzDTfIb0DU
+
+To see comments and descriptions for videos you can use mpsyt like this:
+	
+	$ mpsyt
+	> /faith no more	# search for phrase
+	> c 3			# comments for search result number 3
+	> n			# next page of comments
+	> i 3			# info and description of the video
+	> 3			# play video
+	> help			# show other commands
 
 Invidio.us has all youtube videos without all the unnecessary javascript
 (this doesn't matter for w3m though) and is rendered way better by w3m than
@@ -117,121 +129,98 @@ original youtube site.
 
 -------------------------------------------------------------------------------
 
-# # maps
 
-This is something I need to work on.
+******** maps
 
-When I need to see a location of a city I make this query in duckduckgo.com on
-w3m - `site:freecountrymaps.com berlin`. Far from perfect solution. Or even
+This is something I need to do some research on. Maybe selenium will allow to
+use google maps in console? Dunno yet.
+
+Now, when I need to see a location of a city I make this query in duckduckgo.com
+on w3m - `site:freecountrymaps.com berlin`. Far from perfect solution. Or even
 good tbh.
 
 I still fire up xorg to find the best route between map points.
 
+
 -------------------------------------------------------------------------------
 
-# # hacker news, reddit
+
+******** hacker news, reddit
 
 Hacker news works great in w3m without any customizations. You can't create
-an account though as verification is required via google's javascript. Still,
-you can send an e-mail with a request for an account. All other things
-work just great, apart from folding the comment threads. Oh, and downvoted
-comments are not greyed out, so you need to think for yourself to determine
-if the comment is low quality. Oh, and search doesn't work, but you can
-use duckduckgo for that with `site:ycombinator.com tptacek` as an example.
+an account though, as verification is required via google's javascript. Still,
+you can send an e-mail with a request for an account. All other things work just
+great, apart from folding the comment threads. Oh, and downvoted comments are
+not greyed out, so you need to think for yourself to determine if the comment is
+low quality. Oh, and search doesn't work, but you can use duckduckgo for that
+with 'site:ycombinator.com tptacek' as an example.
 
 Reddit works ok in w3m to view posts. You just have to redirect all http
-requests to old.reddit.com. To do that create a file `~/.w3m/siteconf` with
+requests to old.reddit.com. To do that create a file ~/.w3m/siteconf file with
 these lines:
-```
-url "https://www.reddit.com/"
-substitute_url "https://old.reddit.com/"
-```
-Didn't test creating an account, logging in or posting comments, but chances
-are that this doesn't work in w3m. You can also try to use programs that show
-reddit content in terminal, like rtv alternatives[x30].
+
+	url "https://www.reddit.com/"
+	substitute_url "https://old.reddit.com/"
+
+I didn't test creating an account, logging in or posting comments, but chances
+are that this doesn't work well in w3m. You can also try to use programs that
+show reddit content in terminal, like rtv alternatives[x30].
 
 [x30]:https://github.com/michael-lazar/rtv/blob/master/ALTERNATIVES.md
 
-
 -------------------------------------------------------------------------------
 
-# # stack overflow et al
 
-Logging in from w3m works. Posting questions and answers probably works.
-Posting comments and voting don't work (because javascript). Creating an API
-key works.
+******** stack overflow et al
+
+Logging in from w3m works. Posting questions and answers probably works. Posting
+comments and voting don't work (because javascript). Creating an API key works.
 
 socli[x40] is probably great too, but currently broken[x41] and limited.
-```
-$ mkdir socli; cd socli
-$ virtualenv env
-$ . env/bin/activate
-$ pip install socli
-$ socli for loop in python
-No results found...
-$ git clone https://github.com/gautamkrishnar/socli 	# for latest patches
-$ cd socli
-$ git checkout refactoring
-$ pip install -r requirements.txt
-$ python -m socli for loop in python
-No results found...
-```
+	$ mkdir socli; cd socli
+	$ virtualenv env
+	$ . env/bin/activate
+	$ pip install socli
+	$ socli for loop in python
+	No results found...
+	$ git clone https://github.com/gautamkrishnar/socli 	# for latest patches
+	$ cd socli
+	$ git checkout refactoring
+	$ pip install -r requirements.txt
+	$ python -m socli for loop in python
+	No results found...
 
 [x40]:https://github.com/gautamkrishnar/socli
 [x41]:https://github.com/gautamkrishnar/socli/issues/163
 
-
 -------------------------------------------------------------------------------
 
-# # tor
+
+******** tor
 
 To visit .onion webpages from w3m you need to install privoxy and tor daemon.
 
-In `/etc/privoxy/config` add these lines to setup a tor proxy server:
-```
-listen-address 127.0.0.1:8080
-forward-socks5 / localhost:9050 .
-```
+In /etc/privoxy/config add these lines to setup a tor proxy server:
+	listen-address 127.0.0.1:8080
+	forward-socks5 / localhost:9050 .
 
-To resolve .onion urls to tor IP adresses you need to put this in
-`/etc/tor/torrc`:
-```
-## Torified DNS
-DNSPort 127.0.0.1:53
-AutomapHostsOnResolve 1
-```
-...and add this entry at the end of `/etc/resolv.conf`:
-```
-nameserver 127.0.0.1
-```
-Make sure that all directories specified in torrc exist, otherwise tor will
-exit without any notification.
+To resolve .onion urls to tor IP adresses you need to put this in /etc/tor/torrc:
+	## Torified DNS
+	DNSPort 127.0.0.1:53
+	AutomapHostsOnResolve 1
 
-And finally - start tor with `tor` command and privoxy with 
-`privoxy --no-daemon --user privoxy /etc/privoxy/config`.
+Also, add this entry at the end of /etc/resolv.conf:
 
-Now just open w3m, go to options and set option `use proxy` to yes.
+	nameserver 127.0.0.1
 
-You can now open any onion site in linux console.
+Make sure that all directories specified in torrc exist, otherwise tor will exit
+without any clear error message.
+
+And finally - start tor with 'tor' command and privoxy with 
+'privoxy --no-daemon --user privoxy /etc/privoxy/config'.
+
+Now just open w3m, go to options and set option 'use proxy' to yes. You can now
+open any .onion site in linux console.
 
 WARNING! If you want or need the best anonymity use Tor Browser in Xorg.
 
-
--------------------------------------------------------------------------------
-
-# # last.fm
-
-mpsyt has an interface to last.fm. Didn't use it yet, but here's some
-information from mpsyt:
-
-```
-pylast needs to be installed for Last.fm support. See
-https://github.com/pylast/pylast.
-
-	Use set to set your Last.fm login credentials, e.g.  
-	set lastfm_username jane_doe.
-	Similarly, you also have to provide an API key and it's corresponding  
-	secret.
-	An API key can be retrieved from  
-	https://www.last.fm/api/account/create.
-```
