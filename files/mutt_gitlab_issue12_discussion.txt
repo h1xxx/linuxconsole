@@ -1,0 +1,111 @@
+
+extracted from gitlab on 2020-04-05
+https://gitlab.com/muttmua/mutt/issues/12
+
+--------------------------------------------------------------------------------
+
+Closed
+ Opened 2 years ago by Emil Velikov
+
+Consider merging Mutt and NeoMutt
+
+Hi all
+
+I would like to ask if the team is willing to consider merging with NeoMutt.
+
+NOTE: I'm not a member of either team, just a user who's frustrated with the current state.
+
+Based on a quick reply over at NeoMutt side [1], they might consider getting the two projects closer - perhaps even merging them...
+
+They have pointed out a few concerns about
+
+    (former) leadership
+    being too conservative
+    coding style, naming scheme and consistency
+    library functions
+
+Some of the above are rather short of details, but I hope that both projects can afford to make minor compromise and move forward.
+
+The thread does see a positive change in Mutt with the current maintainer - Kevin. With the big step of transitioning to git/gitlab, the next one can be a Mutt/NeoMutt merger?
+
+To make things more transparent and easier going forward, I would suggest documenting some bits. Note: These are just examples, so there's no point in discussing them in this issue/thread.
+
+    role of current project lead - what they can and cannot do
+    have former poll across devs for the more conflicting topics
+    coding style + tooling
+    handling new/experimental/unready features - use something like linux staging perhaps?
+
+Thanks Emil
+
+[1] https://github.com/neomutt/neomutt/issues/1075
+
+--------------------------------------------------------------------------------
+
+Kevin J. McCarthy
+Kevin J. McCarthy @kevin8t8 · 2 years ago
+Maintainer
+
+Hi Emil,
+
+As you can imagine, this issue is not new at all for the Mutt team.
+
+Richard, as usual, tries to paint a picture of somehow being wronged by our community, leaving him no choice but to fork. You can read the thread of his first interaction yourself, https://marc.info/?t=144806911800003&r=1&w=2, and my reply telling him he was approaching this the wrong way, https://marc.info/?l=mutt-dev&m=144821876113017&w=2. After that he disappeared and came back 3-4 months later with his fork.
+
+His subsequent attempts to propose patches were equivalently clumsy, and generally speaking, the team wasn't impressed with their technical quality.
+
+His statement "Upstream have adopted a few of our ideas/features." is just another distortion. Sidebar and compressed-folder were patches that did not originate from NeoMutt, and required extensive fixing on my part to be merge-able.
+
+From our point of view, Richard seems to be someone who wanted to run his own project from the beginning. He came in with a "my way or the highway" attitude, got push-back, and instead of trying to work with the team, simply left and forked the project.
+
+I've worked hard since 1.5.24 (my first release) to fix the code, accept patches, and increase the release rate. I've merged and created many features, and fixed numerous gnarly bugs, while still keeping the code stable. You can see yourself at https://gitlab.com/muttmua/mutt/raw/master/UPDATING. Richard's first demand, "A change of leadership for Mutt.", is simply insulting.
+
+I hope that makes it clear where things are, and why they are that way. From my point of view, there is no competition - Mutt is, and continues to be, an important project that has been around for over 20 years. I've got nothing to prove in a "commit DSW", and no need to accept NeoMutt's code on their terms. If members of their team want to join the mutt-dev mailing list, there is nothing stopping them.
+
+-Kevin
+
+--------------------------------------------------------------------------------
+
+ Emil Velikov @xexaxo · 2 years ago
+
+Thanks for the extensive answer Kevin.
+
+I fear that my gut feeling was in the same direction. I think Richard has a point on the cosmetic topics*, although he seems to be struggling to work with people who disagree with him.
+
+I sincerely hope he'll work on that - for his sake and for those around him.
+
+That aside, I think that with gitlab one can improve the documentation and the integration processes. Making things easier and more transparent for established devs. and newcomers alike.
+
+Let's consider this closed.
+
+    Coding style, formatting, etc. does impact the quality of the code and its legibility. So Mutt should consider adapting a consistent style and enforcing [via kernel style check-patch + gitlab hooks?] for new patches. Definitely no system-wide changes.
+
+--------------------------------------------------------------------------------
+
+Ben Boeckel
+Ben Boeckel @ben.boeckel · 2 years ago
+
+    Coding style, formatting, etc. does impact the quality of the code and its legibility. So Mutt should consider adapting a consistent style and enforcing [via kernel style check-patch + gitlab hooks?] for new patches. Definitely no system-wide changes.
+
+I don't think I've ever (needed to) make a Mutt patch, so I won't speak for Mutt, but I can as a developer and maintainer of other long-lived projects (15+ years old) that receives steady development activity (at least a few MRs a day). I offer it as a data point, not a solution.
+
+The only way to handle formatting consistently that we've found without developer revolt is not only to have a style but to have a process for automatically fixing the problems that can be fixed by clang-format (and similar tools). Saying "no, go run a formatter" is silly when you could run it just as easily (plus clang-format is not stable across versions and 3.8 disagrees with 4.0 and both disagree with 5.0, so developers may see different results).
+
+However, this does require a commit to do the initial sweep of formatting changes (since these tools are fairly dumb and don't work well on just patches[1]. We usually do this with a single commit that has authorship to a robot identity (the committer is the one who did the work) so that when blaming it is indicative that it should be skipped. The only part of clang-format I would recommend splitting out is the include sorting since that can change behavior.
+
+If more details are wanted on our implemented solution, I can provide them (though I leave for an extended vacation in 3 weeks).
+
+[1]At least clang-format-diff will not fix blank line duplication based on just the diff; the whole file needs to be looked at for those kinds of things. I also don't think it can fix header sorting issues beyond the context of the diff, so it is not a viable tool for this strategy.
+
+--------------------------------------------------------------------------------
+
+Emil Velikov @xexaxo · 2 years ago
+
+Thanks Ben - the automation is a crucial step, although I'm not sold on the initial sweep. Either way, it's not my call.
+
+Since it's getting a bit off-topic, let's move any future discussion in a separate thread.
+
+
+
+
+
+

@@ -1,0 +1,109 @@
+*********************           Microsoft Office           *********************
+
+
+Index:
+
+* Microsoft Outlook
+* Microsoft Excel
+
+
+
+******** Microsoft Outlook
+
+I use mutt. mutt's great. mutt is not a gimmick[x00].
+
+Lately neomutt gained some popularity and I was using it too for some time, but
+after asking questions like 'why is it any better' and receiving vague responses
+everywhere I switched back to mutt. Feels better. Also this[x01].
+
+[x00]:https://news.ycombinator.com/item?id=17889300
+[x01]:./files/mutt_gitlab_issue12_discussion.txt
+
+-------------------------------------------------------------------------------
+
+******** Microsoft Word
+
+vim has all the Word's features and more ;-).
+
+
+-------------------------------------------------------------------------------
+
+
+******** Microsoft Excel
+
+Pretty good Excel replacement for console is sc[x10]. Not gonna lie - it takes a
+while getting used to it. Still worth it imho. Help is pretty good, but vague at
+times. It can be found under <?> key. Below is a small reference sheet that
+might help with getting started.
+
+There's also sc-im[x11], but after I started it up the colors scared me away. I
+still have to build up some courage to try it again someday.
+
+As a powerful replacement for pivot table functionality I use python's pandas
+library[x12] together with bpython[x13].
+
+For creating graphs based on various types of data gnuplot is a go-to tool. An
+example of creating a plot config, a spreadsheet and finally a graph:
+
+- first you configure your plot
+
+	$ echo "set terminal png
+	set output 'plot.png'
+	plot '/dev/stdin' with lines" > plotcfg.plg
+
+- then you create a spreadsheet and pass it to gnuplot. Obviously it's easier to
+edit the spreadsheet with sc's TUI, but this example is good also for scripting.
+
+	$ echo 'let A0 = 1
+	let B0 = 8
+	let A1 = 2
+	let B1 = 16
+	let A2 = 3
+	let B2 = 32
+	' | sc -W '%' - | gnuplot plotcfg.plg
+
+Now nice(?) looking graph can be found in file plot.png. To make it even nicer
+adjustments to the plotcfg.plg have to be made.
+
+
+-------------------------------------------------------------------------------
+
+
+Just another example of gnuplot graphs.
+	$ primes 1 1000 |
+	gnuplot -p -e 'set term png; set output "plot2.png"; plot "/dev/stdin"'
+
+
+And a quick sc reference sheet:
+
+	enter a numeric value
+		<e>, then type: let D5 = 666
+
+	enter a string
+		<E><a>
+
+	enter a date (enter this formula after <e>)
+		@dts(15,12,31)
+
+	format seconds since epoch as a date (^ is ctrl, see format in man strftime)  
+		<F><^d>%Y-%m-%y
+
+	format numeric values, columns and rows
+		<f>, then
+		  <j>,<k>   change number of decimal places shown
+		  <h>,<l>   change column width
+
+	fill a range with increment of one  
+		<r><f>, (select range), tab, 1, 1
+
+	save current file in spreadsheet format  
+		<P> <filename.sc>
+		<ZZ>
+
+	save current file in text format  
+		<P> <filename.sc>
+
+[x10]:https://github.com/n-t-roff/sc
+[x11]:https://github.com/andmarti1424/sc-im
+[x12]:https://pandas.pydata.org/docs/getting_started/10min.html#pivot-tables
+[x13]:https://bpython-interpreter.org/about.html
