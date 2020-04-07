@@ -43,7 +43,16 @@ Now you can toggle status bar by pressing <prefix><S>.
 If you need some kind of music management system, then cmus was quite pleasant
 when I was using it a long time ago.
 
+If you're looking for some new music you can use youtube with a little bit of
+a shell script[x01]. Like this:
+	
+	$ ./musiclike.sh https://www.youtube.com/watch?v=Swxw2t-9ir4
+
+Adjsut the script to suit your needs - add recursion, filter results, sort or
+shuffle, and finally pass links to mpv. Feel the freedom.
+
 [x00]:https://www.liveradio.ie/countries
+[x01]:./files/musiclike.sh
 
 -------------------------------------------------------------------------------
 
