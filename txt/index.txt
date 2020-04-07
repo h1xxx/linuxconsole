@@ -1,17 +1,19 @@
 
+
 *********************           linuxconsole.net           *********************
 
 
 Welcome.
 
-This site is dedicated to using computers only through the console[x02] of
-Linux systems without any graphical display environments. Like this[x03].
+
+This site is dedicated to using computers only through the console[x02] of Linux
+systems without any graphical display environments. Like this[x03].
 
 If you're just intersted in terminal programs you can find some useful
 information here as well.
 
-This site is updated periodically. To see what was updated since the last
-time you've visited checkout the git[x01] history.
+This site is updated periodically. To see what was updated since the last time
+you've visited checkout the git[x01] history.
 
 
 

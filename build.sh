@@ -49,11 +49,11 @@ for txt_file in txt/*.txt; do
 	links_file="assets/links.${name}.html"
 	[ ! -f ${links_file} ] && links_file='assets/links.back.html'
 
-	cat assets/html.header.html 	> $build_file
-	cat $links_file 		>> $build_file
-	txt2html $txt_file		>> $build_file
-	cat assets/html.end.html 	>> $build_file
-	add_hrefs			$build_file
+	cat assets/html.header.html 			> $build_file
+	sed "s/www.txt/${name}.txt/g" $links_file  	>> $build_file
+	txt2html $txt_file				>> $build_file
+	cat assets/html.end.html 			>> $build_file
+	add_hrefs					$build_file
 
 done
 

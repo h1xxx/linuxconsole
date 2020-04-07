@@ -159,7 +159,7 @@ editors[x30]) - these should be run by separate users within tmux.
 
 ******** sound
 
-Disable the damn beep on keypress: `$ setterm -blength 0` or unload and
+Disable the damn beep on keypress: '$ setterm -blength 0' or unload and
 blacklist the pcspkr module completely.
 
 
@@ -238,13 +238,13 @@ To see actual glyphs in this file you can use a little bit of a shell script:
 	unifont='./font/psf/unifont-apl.txt'
 	list=$(grep -v '^#' $unifont | sort -u)
 
-	while read -r line; do
+	echo "$list" | while read -r line; do
 		unicode=$(echo "$line" | cut -d'#' -f1 | sed 's|U+|\\u|')
 		desc=$(echo "$line" | cut -d'#' -f2)
 
 		echo -nE "$unicode"
 		echo -ne "\t" $unicode "\t" $desc "\n"
-	done <<< "$list"
+	done
 
 Of course you'll need a font with these glyphs already compiled in to view them.
 It's actually best to do it in xorg environment, as there's usually pretty good
@@ -321,6 +321,6 @@ UTF-8 files located there from libX11 package for a more complete code table:
 
 Vim also has a pretty cool UTF-8 table in /usr/share/vim/vim81/doc/digraph.txt.
 
-[x60]:./unicode_list.txt
+[x60]:./files/unicode_list.txt
 
 
