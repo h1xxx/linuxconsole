@@ -12,6 +12,7 @@ Index:
 
 ******** video and music
 
+
 mpv has everything I need, including the ability to play streams. To play videos
 in the console you just need to provide --vo=drm argument. To play music you
 just need to provide a file or a directory with music as an argument.
@@ -59,6 +60,7 @@ shuffle, and finally pass links to mpv. Feel the freedom.
 
 ******** images
 
+
 There are two image viewers - fim[x10] and fbi[x11]. I'm currently using fim,
 which is supposed to be improved fbi. Both do the job.
 
@@ -69,6 +71,7 @@ which is supposed to be improved fbi. Both do the job.
 
 
 ******** PDFs, DJVUs and e-books
+
 
 For PDFs and DJVUs I use fbpdf[x20] that also provides fbdjvu binary. It works
 good enough not to start xorg to work with PDFs. Be aware that after changing
@@ -95,6 +98,7 @@ also to dump them into PDF.
 
 
 ******** camera and QR codes scanning
+
 
 To record video from camera you can use ffmpeg with compiled in v4l2 support.
 v4l2-ctl is available in v4l-utils package. Check out these commands:

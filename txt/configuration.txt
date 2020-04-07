@@ -22,6 +22,7 @@ Index:
 
 **** resolution
 
+
 Resolution can be changed during boot-time by providing below kernel
 parameters. You can set multiple 'video' values for different screens.
 Documentation for this is located here[x00]:
@@ -37,6 +38,7 @@ of this command:
 
 
 **** setterm
+
 
 Setterm is useful for configuring your console. Be sure to run it in tty i.e.
 outside of tmux.
@@ -56,6 +58,7 @@ useful information about console configuration.
 
 
 **** cursor
+
 
 To disable cursor blinking run this somewhere in your boot process:  
 	
@@ -85,6 +88,7 @@ obviously[x01] not with cat -v.
 
 
 ******** kernel messages
+
 
 By default kernel will print log messages to the console. I like this
 functionality as it allows me to see what just happened on my system in real
@@ -123,6 +127,7 @@ To make this persistent do:
 
 ******** users and security
 
+
 To be able to play videos in your Linux console and listen to audio you'll need
 to add a user doing those things to 'audio' and 'video' groups.
 
@@ -159,6 +164,7 @@ editors[x30]) - these should be run by separate users within tmux.
 
 ******** sound
 
+
 Disable the damn beep on keypress: '$ setterm -blength 0' or unload and
 blacklist the pcspkr module completely.
 
@@ -170,6 +176,7 @@ blacklist the pcspkr module completely.
 
 
 **** choosing font
+
 
 One of the most important choices one can make when living in the console is the
 choice of a font. I've spent many hours testing different ones and what I have
@@ -202,6 +209,7 @@ default console font in /etc:
 [x13]:https://en.wikipedia.org/wiki/File:Version_7_Unix_SIMH_PDP11_Emulation_DMR.png
 
 **** building unifont
+
 
 Steps to build unifont:
 
@@ -283,6 +291,7 @@ On arch linux you need to get the bdf2psf from AUR:
 
 
 **** finding UTF-8 codes
+
 
 If you see this character on the console � (U+FFFD) it means that you are
 missing a glyph in your font. To find the code for this glyph copy it to the

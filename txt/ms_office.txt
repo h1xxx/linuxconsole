@@ -11,6 +11,7 @@ Index:
 
 ******** Microsoft Outlook
 
+
 I use mutt. mutt's great. mutt is not a gimmick[x00].
 
 Lately neomutt gained some popularity and I was using it too for some time, but
@@ -24,6 +25,7 @@ everywhere I switched back to mutt. Feels better. Also this[x01].
 
 ******** Microsoft Word
 
+
 vim has all the Word's features and more ;-).
 
 
@@ -31,6 +33,7 @@ vim has all the Word's features and more ;-).
 
 
 ******** Microsoft Excel
+
 
 Pretty good Excel replacement for console is sc[x10]. Not gonna lie - it takes a
 while getting used to it. Still worth it imho. Help is pretty good, but vague at
