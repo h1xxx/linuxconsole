@@ -132,7 +132,8 @@ Higher resolution:
 
 Higher resolution with enabled compression to fit into USB 2.0 bandwidth:
 	
-	$ mpv --vo drm --demuxer-lavf-o=video_size=1280x720:input_format=mjpeg av://v4l2:/dev/video0
+	$ mpv --vo drm --demuxer-lavf-o=video_size=1280x720:input_format=mjpeg \
+		av://v4l2:/dev/video0
 
 Command 'v4l2-ctl --list-formats-ext' will help to determine correct modes
 supported by the camera.
