@@ -12,15 +12,15 @@ p_title='*<span dir="ltr" class="title"*'
 echo "$html" | while read -r line; do
 
 	case "${line}" in
-		$p_link)		echo $line | cut -z -d'"' -f2 ;;
-		$p_title)		title='true'
-					continue ;;
+		$p_link)	echo -n https://www.youtube.com
+				echo $line | cut -d'"' -f2 ;;
+		$p_title)	title='true'
+				continue ;;
 	esac
 
 	if [ "$title" == 'true' ]; then
 		title=$line
-		echo -ne '\t'
-		echo $line | w3m -dump -T text/html
+		echo $line | w3m -dump -T text/html | head -n1
 		title=''
 	fi
-done
+done | paste -d' ' - -
