@@ -3,8 +3,9 @@
 
 $ git clone git://linuxconsole.net/lnxcons
 
-Source for this site. Can be easily repurposed for similar projects.  
-Languages: shell, markdown, html, css
+Source for this site. Pretty minimal (yay!). Can be easily repurposed for
+similar projects.  
+Languages: shell, html, css
 
 
 ******** mailcount
