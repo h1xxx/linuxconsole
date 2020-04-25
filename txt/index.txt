@@ -40,7 +40,7 @@ This site has been optimized for w3m 0.5.3 or above.
 Everything published under the linuxconsole.net domain is licensed with
 WTFPL[x00] v2 licence with no warranties whatsoever.
 
-
+Tor mirror: lnxconsy6dq6aqzopz7gpphil3uhmjyz43qqnxajoqmildob4oowjxad.onion
 
 [x00]:http://www.wtfpl.net/txt/copying
 [x01]:./repos.html
