@@ -17,6 +17,10 @@ rsync -avP --checksum \
 	--no-perms --no-owner --no-group \
 	./ root@www://var/git/lnxcons/
 
+rsync -avP --checksum \
+	--no-perms --no-owner --no-group \
+	../getmagnet root@www://var/git/
+
 ssh root@www chown -c -R root:nobody /var/git
 ssh root@www 'find /var/git/ \
 	-type d \

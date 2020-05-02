@@ -24,3 +24,13 @@ Program to print system information in one line to be used in tmux status bar.
 "Works on my computer", but it most probably won't work on yours yet.  
 Language: C
 
+
+******** getmagnet
+
+$ git clone git://linuxconsole.net/getmagnet
+
+CLI tool to query database dumped by magneticod[x01].
+Language: go
+
+
+[x01]:https://github.com/boramalper/magnetico
