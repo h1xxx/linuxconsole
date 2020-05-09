@@ -1,0 +1,15 @@
+*********************             irc server               *********************
+
+
+
+
+Let's have a chat on linuxconsole.net:6697. Only TLS via the below certificate.
+
+
+
+certificate fingerprint:
+EF:B2:27:2E:11:F7:96:3C:06:80:8B:BF:DE:07:8A:73:FF:E6:EA:3D:1B:05:3B:8D:D7:0B:35:DD:09:44:3D:86
+
+certificate public key fingerprint:
+F5:DC:C4:04:94:3E:BA:32:6F:AF:46:D2:44:23:36:30:04:4B:A6:00:A8:22:C1:C1:5A:E1:6C:77:72:DD:5D:CB
+
