@@ -5,15 +5,16 @@ $ git clone git://linuxconsole.net/linuxconsole.git
 
 Source for this site. Pretty minimal (yay!). Can be easily repurposed for
 similar projects.  
+
 Languages: shell, html, css
 
 
-******** mailcount
+******** utils
 
-$ git clone git://linuxconsole.net/mailcount.git
+$ git clone git://linuxconsole.net/utils.git
 
-Program to print information about number of mails on IMAP server.  
-Language: C
+Just some small utils.
+Languages: C, Go, Shell
 
 
 ******** stts
@@ -22,6 +23,7 @@ $ git clone git://linuxconsole.net/stts.git
 
 Program to print system information in one line to be used in tmux status bar.
 "Works on my computer", but it most probably won't work on yours yet.  
+
 Language: C
 
 
@@ -29,6 +31,7 @@ Language: C
 
 $ git clone git://linuxconsole.net/torrentTools.git
 
-Some CLI tools for torrents.
+Some CLI tools around torrent protocol.
+
 Language: go
 
