@@ -1,5 +1,5 @@
 
-# cool personal sites
+# personal sites
 
 https://drewdevault.com/
 https://dwheeler.com
@@ -7,6 +7,8 @@ https://z3bra.org/
 https://lyngvaer.no/
 https://inconsolation.wordpress.com
 https://sanctum.geek.nz/arabesque/
+https://hosakacorp.net
+http://leslie.is
 
 
 https://neocities.org/browse
@@ -17,3 +19,13 @@ https://neocities.org/browse
 http://www.anonet.org/
 https://volatile.bz
 
+
+# haxxor
+
+http://eternal.red/
+
+
+# tor
+
+list of cool tor webpages
+http://xbvdi24nkz3arqhfckgu6wkjql6nlvuatgbm2zgqbfqhbb5migkxyuyd.onion/
