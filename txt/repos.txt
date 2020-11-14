@@ -1,5 +1,5 @@
 
-******** linuxconsole.net
+* linuxconsole.net
 
 $ git clone git://linuxconsole.net/linuxconsole.git
 
@@ -9,7 +9,7 @@ similar projects.
 Languages: shell, html, css
 
 
-******** utils
+* utils
 
 $ git clone git://linuxconsole.net/utils.git
 
@@ -17,7 +17,7 @@ Just some small utils.
 Languages: C, Go, Shell
 
 
-******** stts
+* stts
 
 $ git clone git://linuxconsole.net/stts.git
 
@@ -27,7 +27,7 @@ Program to print system information in one line to be used in tmux status bar.
 Language: C
 
 
-******** torrent tools
+* torrent tools
 
 $ git clone git://linuxconsole.net/torrentTools.git
 
