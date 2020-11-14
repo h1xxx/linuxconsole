@@ -52,7 +52,7 @@ Some ideas for external browsers:
 	- download a webpage under the link
 		wget -pkEe robots=off
 	
-	- play a video (e.g. from invidio.us or youtube)
+	- play a video (e.g. from invidio.us instance or youtube)
 		mpv --vo drm
 	
 	- view more information on youtube video (description, comments etc.)
@@ -70,7 +70,7 @@ search engines directly from command line. Like this:
 	
 	alias w3m='w3m -B'		# start w3m on bookmark page
 	w3d() { command w3m duckduckgo.com/lite/?kd=-1\&kp=-2\&kl=us-en\&q="$*"; }
-	w3y() { command w3m invidio.us/results?search_query="$*"; }
+	w3y() { command w3m youtube.com/results?search_query="$*"; }
 	w3yy() { command w3m youtube.com/results?search_query="$*"; }
 
 You can now type '$ w3d atari 65xe' to quickly find search engine results, or
@@ -101,19 +101,19 @@ so put this one in a bookmark.
 Above you could see how to use youtube from w3m web browser. From the command
 line you can use youtube-dl to download the videos and watch them with mpv.
 	
-	$ youtube-dl invidio.us/watch?v=vPzDTfIb0DU
+	$ youtube-dl youtube.com/watch?v=vPzDTfIb0DU
 	$ mpv --vo=drm Faith\ No\ More\ -\ Easy*-vPzDTfIb0DU.mkv
 
 You can also play youtube videos directly from mpv (don't forget "https://"):
 	
-	$ mpv --vo drm  https://invidio.us/watch?v=vPzDTfIb0DU
+	$ mpv --vo drm  https://youtube.com/watch?v=vPzDTfIb0DU
 
 And you can just listen to music without downloading the videos, which is way
 faster obviously:
 
-	$ youtube-dl -x invidio.us/watch?v=vPzDTfIb0DU
+	$ youtube-dl -x youtube.com/watch?v=vPzDTfIb0DU
 	$ mpv Faith\ No\ More\ -\ Easy*-vPzDTfIb0DU.opus
-	$ mpv --no-video https://invidio.us/watch?v=vPzDTfIb0DU
+	$ mpv --no-video https://youtube.com/watch?v=vPzDTfIb0DU
 
 To see comments and descriptions for videos you can use mpsyt like this:
 	
