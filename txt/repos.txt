@@ -27,11 +27,3 @@ Program to print system information in one line to be used in tmux status bar.
 Language: C
 
 
-* torrent tools
-
-$ git clone git://linuxconsole.net/torrentTools.git
-
-Some CLI tools around torrent protocol.
-
-Language: go
-
