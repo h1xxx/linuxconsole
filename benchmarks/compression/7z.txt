@@ -1,0 +1,76 @@
+
+* conclusions
+
+- most terrible CLI encountered to date
+- '-md=512m' is ok for 64GB system and a 24GB file, anything more is OOM
+
+
+* chosen settings
+
+multi-threaded
+7z a -t7z -m0=lzma2 -mx=1 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=3 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=5 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=9 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=9 -mfb=279 -md=1g __outFile__ __inFile__ > /dev/null 2>&1
+
+single-threaded
+7z a -t7z -m0=deflate -mx=0 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=deflate -mx=5 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=deflate -mx=7 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=deflate -mx=9 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=1 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=3 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=5 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1
+7z a -t7z -m0=lzma2 -mx=9 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1
+
+
+* benchmark 1
+
+0 : 7z a -t7z -m0=deflate -mx=0 __outFile__ __inFile__ > /dev/null 2>&1
+1 : 7z a -t7z -m0=deflate -mx=1 __outFile__ __inFile__ > /dev/null 2>&1
+2 : 7z a -t7z -m0=deflate -mx=3 __outFile__ __inFile__ > /dev/null 2>&1
+3 : 7z a -t7z -m0=deflate -mx=5 __outFile__ __inFile__ > /dev/null 2>&1
+4 : 7z a -t7z -m0=deflate -mx=7 __outFile__ __inFile__ > /dev/null 2>&1
+5 : 7z a -t7z -m0=deflate -mx=9 __outFile__ __inFile__ > /dev/null 2>&1
+6 : 7z a -t7z -m0=lzma2 -mx=1 __outFile__ __inFile__ > /dev/null 2>&1
+7 : 7z a -t7z -m0=lzma2 -mx=3 __outFile__ __inFile__ > /dev/null 2>&1
+8 : 7z a -t7z -m0=lzma2 -mx=5 __outFile__ __inFile__ > /dev/null 2>&1
+9 : 7z a -t7z -m0=lzma2 -mx=7 __outFile__ __inFile__ > /dev/null 2>&1
+10: 7z a -t7z -m0=lzma2 -mx=9 __outFile__ __inFile__ > /dev/null 2>&1
+11: 7z a -t7z -m0=lzma2 -mx=9 -mfb=279 -md=1g __outFile__ __inFile__ > /dev/null 2>&1
+
+text
+id | wall t    cpu t  w. MB/s  c. MB/s   mem MB    ratio |  wall t    cpu t  w. MB/s  c. MB/s   mem MB |  stdev
+---+-----------------------------------------------------+---------------------------------------------+-------
+0  |   44.8     42.2     51.3     54.4      6.3    19.6% |     8.9      8.9    258.6    259.2      4.3 |   0.0%
+1  |   43.0     40.7     53.4     56.5      6.3    19.6% |     8.8      8.8    259.6    260.3      4.3 |   0.0%
+2  |   43.2     40.9     53.1     56.2      6.3    19.6% |     8.8      8.8    259.7    260.3      4.4 |   0.0%
+3  |  240.4    237.8      9.7      9.8      6.4    18.1% |     8.5      8.5    276.3    277.0      4.4 |   0.0%
+4  |  744.0    741.8      3.2      3.2      7.6    17.8% |     8.5      8.5    276.5    277.2      4.4 |   0.0%
+5  | 2079.5   2072.5      1.1      1.1      8.2    17.7% |     8.5      8.5    276.8    277.5      4.4 |   0.0%
+6  |    9.0     98.0    263.0     24.2     39.9    17.1% |    22.7     22.6    104.5    104.6      5.3 |   0.0%
+7  |   11.5    145.2    210.5     16.7    208.5    15.3% |    19.5     19.5    124.0    124.1      6.3 |   0.0%
+8  |   86.1    872.8     29.1      2.9   1924.2    12.3% |    15.7     15.7    159.3    159.6     21.2 |   0.0%
+9  |  149.2   1208.5     16.9      2.1   6957.3    11.6% |    14.9     14.9    169.1    169.4     69.2 |   0.0%
+10 |  153.0   1217.3     16.5      2.1   6958.2    11.6% |    14.8     14.8    170.4    170.7     69.2 |   0.0%
+11 |  425.7   1728.9      6.0      1.5  29112.4    10.5% |    13.9     13.8    184.6    184.9   1029.2 |   0.0%
+
+*11: 7z a -t7z -m0=lzma2 -mx=9 -mfb=279 -md=256m __outFile__ __inFile__ > /dev/null 2>&1
+binary
+id | wall t    cpu t  w. MB/s  c. MB/s   mem MB    ratio |  wall t    cpu t  w. MB/s  c. MB/s   mem MB |  stdev
+---+-----------------------------------------------------+---------------------------------------------+-------
+0  |  196.9    188.1     31.0     32.4      6.6    48.6% |    40.7     40.6    150.1    150.1      4.3 |   0.0%
+1  |  218.8    210.5     27.9     29.0      6.2    48.6% |    41.7     41.6    146.5    146.5      4.2 |   0.0%
+2  |  213.4    204.8     28.6     29.8      6.3    48.6% |    41.2     41.2    148.0    148.0      4.4 |   0.0%
+3  |  589.6    580.7     10.5     10.7      6.5    47.8% |    41.2     41.1    150.7    150.8      4.3 |   0.0%
+4  | 1552.8   1543.0      4.0      4.0      7.5    47.6% |    41.3     41.3    150.7    150.8      4.3 |   0.0%
+5  | 4613.1   4597.4      1.4      1.4      8.0    47.5% |    40.6     40.5    153.8    153.9      4.4 |   0.0%
+6  |   69.0    788.8     92.7      8.1     51.5    46.1% |   107.0    106.9     59.8     59.9      5.3 |   0.0%
+7  |  138.6   1641.8     47.9      4.0    235.4    44.1% |    95.9     95.9     69.3     69.3      6.2 |   0.0%
+8  |  234.2   2902.9     30.0      2.4   2345.0    40.9% |    81.9     81.9     85.7     85.7     21.3 |   0.0%
+9  |  326.7   3669.0     21.8      1.9   8151.0    40.2% |    80.2     80.1     88.7     88.7     69.3 |   0.0%
+10 |  320.8   3680.2     22.2      1.9   8156.0    40.2% |    80.2     80.2     88.6     88.6     69.3 |   0.0%
+11 |  408.4   4302.7     17.5      1.7  21973.7    40.0% |    78.9     78.9     90.4     90.4    261.2 |   0.0%
+
+

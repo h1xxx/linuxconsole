@@ -1,0 +1,137 @@
+
+* testing methodology
+
+- framework for running commands and getting statistics:
+  git://linuxconsole.net/benchmarks.git
+
+- all commands are executed via 'chrt -r 99 <command>' as root user to have
+  real-time priority
+
+- before each command is executed filesystem is synced and memory cache/buffers
+  are cleared
+
+- files to be compressed are read from disk, but the output is placed in tmpfs
+
+- files are decompressed from tmpfs to /dev/null
+
+- no other processes are running on the system except for sshd, tmux and kcryptd
+  (disk is encrypted with luks)
+
+- each command is executed during n iterations of a set of commands i.e. all
+  commands are executed in turns, and the number of turns is n
+
+- the best wall time is taken as the final result for each command
+
+- memory usage of the compression process is being polled every 100ms
+
+- each program is first benchmarked separately with 3 iterations on datasets 00
+  (binary data) and 07 (text data) to determine most relevant settings for
+  comparison with other programs
+
+- final benchmarks consist of 5 iterations for each data set
+
+- speed is measured as time not in relation to total data size, but in relation
+  to difference between compressed and uncompressed size; small output data
+  savings will translate to lower speeds, even if measured wall time will be
+  relatively small
+
+- standard deviation of wall time measurements is used to assure consistency
+  of results on test system
+
+- all benchmark datasets are contained in single files
+
+
+
+* analysis methodology
+
+- 'fast' category contains fastest commands sorted by 'w. MB/s'
+
+- 'best' category contains commands with best compression sorted by 'ratio'
+
+- 'balanced' category contains commands with best compression sorted by 'ratio',
+  but with slowest commands for compression and/or decompression excluded
+
+- reference formats are '.gz', '.bz2' and '.xz', therefore '.gz' and '.bz2' are
+  included in 'fast' section and '.bz2' and '.xz' are included in 'balanced'
+  section even when they weren't fastest or didn't provide best compression
+
+factors not taken into account, but of equal importance:
+
+- ubiquity of the compression program (more tests, better support)
+
+- number and severity of bugs and vulnerabilities in compression programs
+
+- support for the algorithm in other tools (kernel, browsers, tar etc.)
+
+
+
+* benchmark datasets
+
+binary data
+
+00 - qcow2 image of a fresh installation of arch linux, 12GB
+
+     contains basic utilities, dwm, firefox and libreoffice, no data was removed
+     after the installation
+
+01 - qcow2 image of a fresh installation of windows 7, 18GB
+     
+     no additional programs were installed
+     
+02 - /usr/bin directory of a system with a lot of bloat, 2GB
+
+     the system was created by installing absurd amount of software from arch
+     linux repositories, the /usr/bin directory was taken without any
+     modifications, tar archive
+     
+03 - cleaned /usr/lib directory of a system with a lot of bloat, 15GB
+
+     the system was created by installing absurd amount of software from arch
+     linux repositories
+     the directory was cleaned by deleting all the media files (jpg, wav etc.),
+     extracting and removing jar files and removing any other compressed files,
+     tar archive
+
+04 - installed counter-strike global offensive, 24GB
+
+     fresh installation, no changes, tar archive
+
+05 - old dos games, 14GB
+
+     games mostly from 1995 and 1996, already installed without and install
+     archives, some of them in multiple versions, so some data redundancy is to
+     be expected, tar archive
+
+06 - a bunch of bencoded torrent files, 3GB
+
+     randomly chosen .torrent files, most of them without tracker information,
+     tar archive
+     
+text data
+
+07 - linux source code versions 5.9.1, 5.8.11 and 5.8.5, 3GB
+
+     uncompressed source files, high redundancy of data, tar archive
+
+08 - dump of passwords found on the internet, 10GB
+
+     just some random passwords in a single file
+
+09 - parsed information from torrent files, 21GB
+
+     cat of information from torrent files - hash, name, size, filenames and
+     file sizes
+
+0a - cat of e-books converted to txt from the Gutenberg Project, 10GB
+
+     randomly chosen books
+
+multimedia
+
+0b - TIFF images from Hubble space telescope, 2GB
+0c - JPG images with paintings from various sources, 2GB
+0d - a bunch of mp3 music files from various sources, 3GB
+0e - varioius PDF files containing books, 3GB
+0f - video files from various sources, 5GB
+
+

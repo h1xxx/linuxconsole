@@ -1,0 +1,77 @@
+
+* everything that starts with '*' in this document is a comment
+
+* output fields
+* wall t          wall time to complete the command (real time)
+* cpu t           cpu time to complete the command (system + user time)
+* w. MB/s         (uncompressed size - compressed size) / wall time
+* c. MB/s         (uncompressed size - compressed size) / cpu time
+* mem MB          RAM used - proportional set size (PSS) of the process
+* ratio           compressed size / uncompressed size
+* stdev           standard deviation of all wall time measurements
+
+* list of commands benchmarked; first number is the id from the last table
+
+0 : lzop -1 -c __inFile__ > __outFile__
+1 : lzop -3 -c __inFile__ > __outFile__
+2 : lzop -7 -c __inFile__ > __outFile__
+3 : lzop -8 -c __inFile__ > __outFile__
+4 : lzop -9 -c __inFile__ > __outFile__
+
+
+* results table - only most significant columns; id replaced by commands with arguments
+
+				     * compression		  * decompression
+
+command                    | wall t  w. MB/s   mem MB    ratio |  wall t   mem MB
+			* results sorted by id
+---------------------------+-----------------------------------+------------------
+lzop -1                    |   22.2    240.2      1.1    55.2% |    13.4      0.6
+lzop -3                    |   22.5    237.3      1.0    55.0% |    13.3      0.6
+lzop -7                    |  375.8     15.8      1.3    50.0% |    15.3      0.6
+lzop -8                    |  831.1      7.2      1.3    49.9% |    15.1      0.6
+lzop -9                    | 1032.3      5.8      1.3    49.9% |    15.1      0.6
+			* results sorted by 'w. MB/s'
+---------------------------+-----------------------------------+------------------
+lzop -1                    |   22.2    240.2      1.1    55.2% |    13.4      0.6
+lzop -3                    |   22.5    237.3      1.0    55.0% |    13.3      0.6
+lzop -7                    |  375.8     15.8      1.3    50.0% |    15.3      0.6
+lzop -8                    |  831.1      7.2      1.3    49.9% |    15.1      0.6
+lzop -9                    | 1032.3      5.8      1.3    49.9% |    15.1      0.6
+			* results sorted by ratio
+---------------------------+-----------------------------------+------------------
+lzop -9                    | 1032.3      5.8      1.3    49.9% |    15.1      0.6
+lzop -8                    |  831.1      7.2      1.3    49.9% |    15.1      0.6
+lzop -7                    |  375.8     15.8      1.3    50.0% |    15.3      0.6
+lzop -3                    |   22.5    237.3      1.0    55.0% |    13.3      0.6
+lzop -1                    |   22.2    240.2      1.1    55.2% |    13.4      0.6
+
+
+* full results table - all columns
+
+			* compression			 		* decompression
+
+					* results sorted by id
+id | wall t    cpu t  w. MB/s  c. MB/s   mem MB    ratio |  wall t    cpu t  w. MB/s  c. MB/s   mem MB |  stdev
+---+-----------------------------------------------------+---------------------------------------------+-------
+0  |   22.2     14.6    240.2    364.1      1.1    55.2% |    13.4     13.4    396.7    396.8      0.6 |   0.0%
+1  |   22.5     15.0    237.3    356.7      1.0    55.0% |    13.3     13.3    401.2    401.3      0.6 |   0.0%
+2  |  375.8    366.6     15.8     16.2      1.3    50.0% |    15.3     15.3    388.0    388.2      0.6 |   0.0%
+3  |  831.1    821.4      7.2      7.2      1.3    49.9% |    15.1     15.1    394.7    394.8      0.6 |   0.0%
+4  | 1032.3   1023.3      5.8      5.8      1.3    49.9% |    15.1     15.1    395.3    395.4      0.6 |   0.0%
+					* results sorted by 'w. MB/s'
+---+-----------------------------------------------------+---------------------------------------------+-------
+0  |   22.2     14.6    240.2    364.1      1.1    55.2% |    13.4     13.4    396.7    396.8      0.6 |   0.0%
+1  |   22.5     15.0    237.3    356.7      1.0    55.0% |    13.3     13.3    401.2    401.3      0.6 |   0.0%
+2  |  375.8    366.6     15.8     16.2      1.3    50.0% |    15.3     15.3    388.0    388.2      0.6 |   0.0%
+3  |  831.1    821.4      7.2      7.2      1.3    49.9% |    15.1     15.1    394.7    394.8      0.6 |   0.0%
+4  | 1032.3   1023.3      5.8      5.8      1.3    49.9% |    15.1     15.1    395.3    395.4      0.6 |   0.0%
+					* results sorted by ratio
+---+-----------------------------------------------------+---------------------------------------------+-------
+4  | 1032.3   1023.3      5.8      5.8      1.3    49.9% |    15.1     15.1    395.3    395.4      0.6 |   0.0%
+3  |  831.1    821.4      7.2      7.2      1.3    49.9% |    15.1     15.1    394.7    394.8      0.6 |   0.0%
+2  |  375.8    366.6     15.8     16.2      1.3    50.0% |    15.3     15.3    388.0    388.2      0.6 |   0.0%
+1  |   22.5     15.0    237.3    356.7      1.0    55.0% |    13.3     13.3    401.2    401.3      0.6 |   0.0%
+0  |   22.2     14.6    240.2    364.1      1.1    55.2% |    13.4     13.4    396.7    396.8      0.6 |   0.0%
+
+

@@ -1,0 +1,12 @@
+Motherboard	Asus ROG CROSSHAIR VII HERO
+CPU		Ryzen 3700X
+Memory		64GB 3200 CL14
+Disk		Samsung 950 PRO NVMe 512GB
+
+OS		Gentoo Linux
+Kernel		5.9.1
+OS Info		- gentoo profile: default/linux/amd64/17.1/no-multilib (stable);
+		- all programs on the system compiled without 'Stack Smashing
+		  Protector' and 'Position Independent Executables';
+		- kernel compiled without any security enhancements and with
+		  preemption model "No Forced Preemption (server)"

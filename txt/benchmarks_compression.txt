@@ -1,0 +1,190 @@
+************************     Data compression utils     ************************
+
+
+* top commands
+
+fast compression:
+
+1. zstd -3 --long=31
+2. zstd -8 --long=31
+3. pigz -6
+
+balanced compression:
+
+1. lrzip -9
+1. zstd -17 --long=31
+1. pixz -9  /  pixz -8
+1. plzip -9  /  plzip -6
+
+best compression:
+
+1. lrzip --zpaq  /  lrzip -L 9
+2. zstd -22 --long=31 --ultra  /  zstd -20 --long=31 --ultra
+2. pixz -9  /  xz -9e
+2. 7z a ... -mfb=279 -md=256m  / 7z a -t7z -m0=lzma2 -mx=9
+
+
+
+* results and key observations
+
+system used : link[x00]
+methodology : link[x01]
+
+Selected best results in categories (excluded datasets 06 and 0b-0f due to poor
+comperssion ratios):
+
+fast[x02]
+
+- zstd killer feature: '--long=31'; it makes repetitive data highly compressed
+  at the cost of higher memory usage, but it will still work on machines with at
+  least 8 GB of RAM
+
+- 'zstd -3' is great when extremely fast (NVMe PCIe 4.0 level fast) compression
+  is required
+
+- pigz offers comparable compression times to 'zstd -3 --long=31', but mostly
+  with much worse compression ratios
+
+
+balanced[x03]
+
+- no obvious winner: pixz and lzip beat zstd most of the time in this category,
+  but zstd beats them when the data is highly repetitive ('--long=31'); lrzip
+  sometimes takes a very long time to decompress data[x06] and has high memory
+  usage, but on the other hand has the best compression ratios
+
+- 7z and xz were excluded from this category due to very slow decompression
+
+- pbzip2 is doing surprisingly well when compressing non-repetitive text data
+
+- xz offers similar compression ratios and times to pixz, but doesn't have
+  multi-threaded decompression yet, and this affected decompression times
+  heavily
+
+
+best[x04]
+
+- 'lrzip --zpaq' is absolutely the best in every data set, but compression times
+  are highest and decompression times are the same as compression times;
+  'lrzip -9' doesn't have these drawbacks and compression ratios are comparable
+
+- zstd didn't compress 'cs: go' as well as other utils
+
+- lrzip and zstd with '--long=31' have no competition when compressing highly
+  repetitive data, like datasets 05 and 07
+
+- 'zstd -20 --long=31' is often twice as fast as 'zstd -22 --long=31', but
+  compresses data up to 1 percentage point less, and the same can be said by
+  comparing 'zstd -17 --long=31' to 'zstd -20 --long=31'
+
+- 'pigz -11' is terribly ineffective[x05] (cpu time is 8x higher than the next
+  slowest tool), so I stopped testing it after the first dataset
+
+- 'plzip -9 -s 256MiB -m 273' has way too high memory usage, so it was excluded
+  from the top rankings
+
+
+
+* tested programs and results for each command
+
+Links contain benchmark results for programs' various settings performed on one
+set of text data and one set of binary data.
+
+Main focus of this benchmark is on multi-threaded programs.
+
+- multi-threaded
+          version
+pigz[x10]      2.4
+pbzip2[x11]    1.1.13
+xz[x12]        5.2.5
+pixz[x13]      1.0.7
+plzip[x14]     1.8
+lrzip[x15]     0.631
+zstd[x16]      1.4.5     * --long=31: link[x17]
+7z[x18]        16.02
+
+- single-threaded
+          version
+gzip[x20]      1.10
+bzip2[x21]     1.0.8
+lzip[x22]      1.21
+lz4[x23]       1.9.2
+lzop[x24]      1.0.4
+brotli[x25]    1.0.9
+
+
+
+* result files
+
+How to read result tables: link[x30].
+
+Results for each data set:
+
+binary
+00[x40] - qcow2 image of a fresh installation of arch linux, 12GB
+01[x41] - qcow2 image of a fresh installation of windows 7, 18GB
+02[x42] - /usr/bin directory of a system with a lot of bloat, 2GB
+03[x43] - cleaned /usr/lib directory of a system with a lot of bloat, 15GB
+04[x44] - installed counter-strike global offensive, 24GB
+05[x45] - old dos games, 14GB
+06[x46] - a bunch of bencoded torrent files, 3GB
+
+text
+07[x47] - linux source code versions 5.9.1, 5.8.11 and 5.8.5, 3GB
+08[x48] - dump of passwords found on the internet, 10GB
+09[x49] - parsed information from torrent files, 21GB
+0a[x4a] - cat of e-books converted to txt from the Gutenberg Project, 10GB
+
+multimedia (just as an experiment to see compression ratios)
+0b[x4b] - TIFF images from Hubble space telescope, 2GB
+0c[x4c] - JPG images with paintings from various sources, 2GB
+0d[x4d] - a bunch of mp3 music files from various sources, 3GB
+0e[x4e] - varioius PDF files containing books, 3GB
+0f[x4f] - video files from various sources, 5GB
+
+The above files do not contain benchmarks for zstd with a setting '--long=31'.
+These are provided separately here[x31]. Compared to '--long=30' significant
+differences exist only for dataset 00.
+
+
+[x00]:./benchmarks/compression/system.txt
+[x01]:./benchmarks/compression/methodology.txt
+[x02]:./benchmarks/compression/top_results_fast.txt
+[x03]:./benchmarks/compression/top_results_balanced.txt
+[x04]:./benchmarks/compression/top_results_best.txt
+[x05]:./benchmarks/compression/results_07.text.linux_source.pigz-11.txt
+[x06]:./benchmarks/compression/results_04.bin.csgo.txt
+[x10]:./benchmarks/compression/pigz.txt
+[x11]:./benchmarks/compression/pbzip2.txt
+[x12]:./benchmarks/compression/xz.txt
+[x13]:./benchmarks/compression/pixz.txt
+[x14]:./benchmarks/compression/plzip.txt
+[x15]:./benchmarks/compression/lrzip.txt
+[x16]:./benchmarks/compression/zstd.txt
+[x17]:./benchmarks/compression/results_10.all.zstd_long_31.txt
+[x18]:./benchmarks/compression/7z.txt
+[x20]:./benchmarks/compression/gzip.txt
+[x21]:./benchmarks/compression/bzip2.txt
+[x22]:./benchmarks/compression/lzip.txt
+[x23]:./benchmarks/compression/lz4.txt
+[x24]:./benchmarks/compression/lzop.txt
+[x25]:./benchmarks/compression/brotli.txt
+[x30]:./benchmarks/compression/results_description.txt
+[x31]:./benchmarks/compression/results_10.all.zstd_long_31.txt
+[x40]:./benchmarks/compression/results_00.bin.qemu_arch_linux.txt
+[x41]:./benchmarks/compression/results_01.bin.qemu_windows_7.txt
+[x42]:./benchmarks/compression/results_02.bin.usr_bin.txt
+[x43]:./benchmarks/compression/results_03.bin.usr_lib.txt
+[x44]:./benchmarks/compression/results_04.bin.csgo.txt
+[x45]:./benchmarks/compression/results_05.bin.old_dos_games.txt
+[x46]:./benchmarks/compression/results_06.bin.torrent_files.txt
+[x47]:./benchmarks/compression/results_07.text.linux_source.txt
+[x48]:./benchmarks/compression/results_08.text.passwords.txt
+[x49]:./benchmarks/compression/results_09.text.torrents_parsed.txt
+[x4a]:./benchmarks/compression/results_0a.text.books.txt
+[x4b]:./benchmarks/compression/results_0b.media.huble_telescope_tiff.txt
+[x4c]:./benchmarks/compression/results_0c.media.portraits_jpeg.txt
+[x4d]:./benchmarks/compression/results_0d.media.mp3_music.txt
+[x4e]:./benchmarks/compression/results_0e.media.pdf_books.txt
+[x4f]:./benchmarks/compression/results_0f.media.video.txt
+

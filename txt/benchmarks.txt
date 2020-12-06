@@ -1,0 +1,9 @@
+***************************        Benchmarks        ***************************
+
+Learning by benchmarking. 
+Here is a list of benchmarks I always wanted to do and had time to actually do.
+
+
+[0x00[x00]] data compression utils
+
+[x00]:./benchmarks_compression.html
