@@ -5,7 +5,8 @@
 
 Let's have a chat on linuxconsole.net:6697. Only TLS via the below certificate.
 
-
+Pin these fingerprints in your client. Your client needs to support certificate
+pinning. Examples of clients with this functionality: irssi, weechat.
 
 certificate fingerprint:
 EF:B2:27:2E:11:F7:96:3C:06:80:8B:BF:DE:07:8A:73:FF:E6:EA:3D:1B:05:3B:8D:D7:0B:35:DD:09:44:3D:86
