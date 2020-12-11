@@ -1,39 +1,22 @@
 ************************     Data compression utils     ************************
 
 
-* top commands
-
-fast compression:
-
-1. zstd -3 --long=31
-2. zstd -8 --long=31
-3. pigz -6
-
-balanced compression:
-
-1. lrzip -9
-1. zstd -17 --long=31
-1. pixz -9  /  pixz -8
-1. plzip -9  /  plzip -6
-
-best compression:
-
-1. lrzip --zpaq  /  lrzip -L 9
-2. zstd -22 --long=31 --ultra  /  zstd -20 --long=31 --ultra
-2. pixz -9  /  xz -9e
-2. 7z a ... -mfb=279 -md=256m  / 7z a -t7z -m0=lzma2 -mx=9
-
-
 
 * results and key observations
 
 system used : link[x00]
 methodology : link[x01]
 
-Selected best results in categories (excluded datasets 06 and 0b-0f due to poor
-comperssion ratios):
+Links contain top results in each category for datasets excluding 06 and 0b-0f
+due to poor comperssion ratios.
+
 
 fast[x02]
+
+top results:
+1. zstd -3 --long=31
+2. zstd -8 --long=31
+3. pigz -6
 
 - zstd killer feature: '--long=31'; it makes repetitive data highly compressed
   at the cost of higher memory usage, but it will still work on machines with at
@@ -47,6 +30,12 @@ fast[x02]
 
 
 balanced[x03]
+
+top results:
+1. lrzip -9
+1. zstd -17 --long=31
+1. pixz -9  /  pixz -8
+1. plzip -9  /  plzip -6
 
 - no obvious winner: pixz and lzip beat zstd most of the time in this category,
   but zstd beats them when the data is highly repetitive ('--long=31'); lrzip
@@ -63,6 +52,12 @@ balanced[x03]
 
 
 best[x04]
+
+top results:
+1. lrzip --zpaq  /  lrzip -L 9
+2. zstd -22 --long=31 --ultra  /  zstd -20 --long=31 --ultra
+2. pixz -9  /  xz -9e
+2. 7z a ... -mfb=279 -md=256m  / 7z a -t7z -m0=lzma2 -mx=9
 
 - 'lrzip --zpaq' is absolutely the best in every data set, but compression times
   are highest and decompression times are the same as compression times;
