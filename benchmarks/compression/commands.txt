@@ -59,13 +59,13 @@
 
 	"lrzip --lzo -p 1 -q -o __outFile__ __inFile__",
         "lrzip -L 3 -p 1 -q -o __outFile__ __inFile__",
-        "lrzip -L 6 -p 1 -q -o __outFile__ __inFile__",
 
         "zstd -3 -T1 -q -c -o __outFile__ __inFile__",
-        "zstd -3 --long=30 -T1 -q -c -o __outFile__ __inFile__",
-        "zstd -8 --long -T1 -q -c -o __outFile__ __inFile__",
-        "zstd -8 --long=30 -T1 -q -c -o __outFile__ __inFile__",
-        "zstd -17 --long=30 -T1 -q -c -o __outFile__ __inFile__",
+        "zstd -3 --long=31 -T1 -q -c -o __outFile__ __inFile__",
+        "zstd -8 -T1 -q -c -o __outFile__ __inFile__",
+        "zstd -8 --long=31 -T1 -q -c -o __outFile__ __inFile__",
+        "zstd -17 -T1 -q -c -o __outFile__ __inFile__",
+        "zstd -17 --long=31 -T1 -q -c -o __outFile__ __inFile__",
 
         "lz4 -1 -c __inFile__ > __outFile__",
         "lz4 -6 -c __inFile__ > __outFile__",
@@ -90,8 +90,6 @@
 
 	"7z a -t7z -m0=lzma2 -mx=1 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1",
 	"7z a -t7z -m0=lzma2 -mx=3 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1",
-	"7z a -t7z -m0=lzma2 -mx=5 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1",
-	"7z a -t7z -m0=lzma2 -mx=9 -mmt=1 __outFile__ __inFile__ > /dev/null 2>&1",
 
 
 ******* multi-threaded
