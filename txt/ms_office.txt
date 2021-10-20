@@ -18,7 +18,7 @@ It takes a while to get familiar with it. Good tuturial can be found here[x01].
 
 Lately neomutt gained some popularity and I was using it too for some time, but
 after asking questions like 'why is it any better' and receiving vague responses
-everywhere I switched back to mutt. Feels better. Also this[x01].
+everywhere I switched back to mutt. Feels better. Also this[x02].
 
 [x00]:https://news.ycombinator.com/item?id=17889300
 [x01]:https://stevelosh.com/blog/2012/10/the-homely-mutt/
