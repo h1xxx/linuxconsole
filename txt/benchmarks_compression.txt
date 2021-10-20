@@ -79,6 +79,15 @@ top results:
   from the top rankings
 
 
+other observations:
+
+- lrzip has stability issues; this opinion is based on my previous experience
+  using this tool, when I encountered bugs when compressing and/or
+  decompressing; this was few years back, so some of the bugs are probably
+  resolved, but during the benchmarking I also encountered this bug:
+  https://github.com/ckolivas/lrzip/issues/102
+
+
 
 * tested programs and results for each command
 
