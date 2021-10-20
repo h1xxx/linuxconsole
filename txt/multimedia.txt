@@ -146,3 +146,9 @@ For reading QR codes I use zbar with compiled in v4l support:
 window, which it cannot open, because Linux console. --prescale is useful to
 increase cam resolution to pick up QR code faster.
 
+-------------------------------------------------------------------------------
+
+
+******** shazam
+
+chromaprint/acoustID is to be investigated.

@@ -9,6 +9,8 @@ https://inconsolation.wordpress.com
 https://sanctum.geek.nz/arabesque/
 https://hosakacorp.net
 http://leslie.is
+https://leahneukirchen.org
+http://mforney.org
 
 
 https://neocities.org/browse
@@ -18,6 +20,12 @@ https://neocities.org/browse
 
 http://www.anonet.org/
 https://volatile.bz
+https://rawtext.club
+ssh torus@ascii.town
+tilde.club
+2f30
+darkscience.net
+
 
 
 # haxxor
@@ -29,3 +37,11 @@ http://eternal.red/
 
 list of cool tor webpages
 http://xbvdi24nkz3arqhfckgu6wkjql6nlvuatgbm2zgqbfqhbb5migkxyuyd.onion/
+http://ebca2srjjopvpopuypgn34wdnbj4ohwm7e5dbw5m5srv3nxpxzrdd4qd.onion/index.html
+http://lainwir3s4y5r7mqm3kurzpljyf77vty2hrrfkps6wm4nnnqzest4lqd.onion/
+http://tirxscsg3pcenlff67ecn2kb3jfv3ori7bgwryyn7btktohfdkms2cyd.onion/
+ttp://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
+
+
+# other
+https://blog.increasinglyadequate.com/

@@ -3,14 +3,22 @@
 [finance](./finance.html)
 [my computing](./my_computing.html)
 
+add vlock info
+
 links
 
 google maps
 
 check redmine
 
+youtube get good suggestions for bestie boys sabotage letterman and
+offsprint self esteem glastonbury
+
 tips:
 cat /dev/zero > /dev/fb0
 bell on message
 touchtyping
 
+games:
+Openarena
+OpenTTD

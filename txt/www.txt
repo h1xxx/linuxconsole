@@ -176,11 +176,26 @@ show reddit content in terminal, like rtv alternatives[x30].
 -------------------------------------------------------------------------------
 
 
-******** stack overflow et al
+******** twitter
+
+'twitter.com' can be replaced by javascript-free version 'nitter.eu', while
+keeping the rest of the url the same.
+
+You can also change User-Agent to google bot:
+'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html'.
+Twitter.com maintains javascript-free version for crawlers, so w3m renders it
+just fine with the above User-Agent.
+
+-------------------------------------------------------------------------------
 
 
-Logging in from w3m works. Posting questions and answers probably works. Posting
-comments and voting don't work (because javascript). Creating an API key works.
+******** stack overflow, unix exchange et al
+
+
+Logging in from w3m works. Posting questions and answers works if you are not
+connected via tor or shared VPN (javascript captcha tries to appear otherwise).
+Posting comments and voting don't work (because javascript is required for
+that). Creating an API key works.
 
 socli[x40] is probably great too, but currently broken[x41] and limited.
 	$ mkdir socli; cd socli
