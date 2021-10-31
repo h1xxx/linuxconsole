@@ -1,4 +1,3 @@
-
 # personal sites
 
 https://drewdevault.com/
@@ -11,9 +10,7 @@ https://hosakacorp.net
 http://leslie.is
 https://leahneukirchen.org
 http://mforney.org
-
-
-https://neocities.org/browse
+https://foxes.are.not.allowed.org/
 
 
 # communities
@@ -27,21 +24,22 @@ tilde.club
 darkscience.net
 
 
-
-# haxxor
+# haxxor sites
 
 http://eternal.red/
 
 
 # tor
 
-list of cool tor webpages
 http://xbvdi24nkz3arqhfckgu6wkjql6nlvuatgbm2zgqbfqhbb5migkxyuyd.onion/
 http://ebca2srjjopvpopuypgn34wdnbj4ohwm7e5dbw5m5srv3nxpxzrdd4qd.onion/index.html
 http://lainwir3s4y5r7mqm3kurzpljyf77vty2hrrfkps6wm4nnnqzest4lqd.onion/
 http://tirxscsg3pcenlff67ecn2kb3jfv3ori7bgwryyn7btktohfdkms2cyd.onion/
-ttp://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
+http://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
 
 
 # other
+
 https://blog.increasinglyadequate.com/
+https://neocities.org/browse
+https://www.curiositry.com/blog.txt
