@@ -15,13 +15,13 @@ https://foxes.are.not.allowed.org/
 
 # communities
 
-http://www.anonet.org/
+https://2f30.org
 https://volatile.bz
 https://rawtext.club
+https://tilde.club
+https://www.darkscience.net
+http://www.anonet.org/
 ssh torus@ascii.town
-tilde.club
-2f30
-darkscience.net
 
 
 # haxxor sites
