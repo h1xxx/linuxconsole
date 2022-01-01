@@ -6,6 +6,7 @@ Index:
 * Microsoft Outlook
 * Microsoft Word
 * Microsoft Excel
+* Microsoft Powerpoint
 
 
 
@@ -73,9 +74,6 @@ Now nice(?) looking graph can be found in file plot.png. To make it even nicer
 adjustments to the plotcfg.plg have to be made.
 
 
--------------------------------------------------------------------------------
-
-
 Just another example of gnuplot graphs.
 	$ primes 1 1000 |
 	gnuplot -p -e 'set term png; set output "plot2.png"; plot "/dev/stdin"'
@@ -114,3 +112,14 @@ And a quick sc reference sheet:
 [x11]:https://github.com/andmarti1424/sc-im
 [x12]:https://pandas.pydata.org/docs/getting_started/10min.html#pivot-tables
 [x13]:https://bpython-interpreter.org/about.html
+
+-------------------------------------------------------------------------------
+
+
+******** Microsoft Powerpoint
+
+
+A simple tool names sent[x20] can be used as an almost drop-in replacement for
+MS Powerpoint.
+
+[x20]:https://tools.suckless.org/sent/
