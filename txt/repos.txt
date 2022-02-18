@@ -35,3 +35,11 @@ Framework for benchmarking run times of other commands.
 
 Language: Go
 
+
+* newsfilter
+
+$ git clone git://linuxconsole.net/newsfilter.git
+
+A small utility to get filtered news from HN, lobste.rs and badcyber.com.
+
+Language: Go

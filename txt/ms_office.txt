@@ -119,7 +119,7 @@ And a quick sc reference sheet:
 ******** Microsoft Powerpoint
 
 
-A simple tool names sent[x20] can be used as an almost drop-in replacement for
+A simple tool named sent[x20] can be used as an almost drop-in replacement for
 MS Powerpoint.
 
 [x20]:https://tools.suckless.org/sent/

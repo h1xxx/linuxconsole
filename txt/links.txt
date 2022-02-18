@@ -1,6 +1,5 @@
-# personal sites
+# cool personal sites
 
-https://drewdevault.com/
 https://dwheeler.com
 https://z3bra.org/
 https://lyngvaer.no/
@@ -9,8 +8,12 @@ https://sanctum.geek.nz/arabesque/
 https://hosakacorp.net
 http://leslie.is
 https://leahneukirchen.org
+https://drewdevault.com/
 http://mforney.org
 https://foxes.are.not.allowed.org/
+http://box.matto.nl/
+https://dataswamp.org/~solene/
+https://unixsheikh.com
 
 
 # communities
@@ -24,9 +27,11 @@ http://www.anonet.org/
 ssh torus@ascii.town
 
 
-# haxxor sites
+# hacker zone
 
 http://eternal.red/
+https://pagedout.institute
+https://tmpout.sh/1/
 
 
 # tor
@@ -43,3 +48,4 @@ http://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
 https://blog.increasinglyadequate.com/
 https://neocities.org/browse
 https://www.curiositry.com/blog.txt
+https://vsrecommendedgames.fandom.com/wiki/V/%27s_Recommended_Games_Wiki

@@ -83,13 +83,15 @@ You can now type '$ w3d atari 65xe' to quickly find search engine results, or
 ******** search engines
 
 
-The only one that works flawlessly with w3m is duckduckgo. Others are working
-more or less fine, so it's still ok to type for example '!s your query' in
-duckduckgo (that's for startpage redirection, recommended) to browse other
+The only major one that works flawlessly with w3m is duckduckgo. Others are
+working more or less fine, so it's still ok to type for example '!s your query'
+in duckduckgo (that's for startpage redirection, recommended) to browse other
 search engines' results.
 
 Subpage of duckduckgo that's rendered the best is https://duckduckgo.com/lite,
 so put this one in a bookmark.
+
+Another search engine working great with w3m is search.marginalia.nu.
 
 
 -------------------------------------------------------------------------------
