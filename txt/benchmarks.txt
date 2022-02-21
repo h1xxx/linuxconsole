@@ -1,4 +1,6 @@
-***************************        benchmarks        ***************************
+==========
+benchmarks
+==========
 
 Learning by benchmarking. 
 Here is a list of benchmarks I always wanted to do and had time to actually do.

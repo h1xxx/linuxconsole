@@ -1,5 +1,6 @@
-*********************                   www                 ********************
-
+==============
+world wide web
+==============
 
 Index:
 
@@ -12,8 +13,9 @@ Index:
 * tor
 
 
-******** web browser
 
+web browser
+===========
 
 Out of all the  console web browsers I tested (w3m, lynx, links and elinks) w3m
 provides the best browsing experience. It has vi key bindings, webpage rendering
@@ -77,11 +79,9 @@ You can now type '$ w3d atari 65xe' to quickly find search engine results, or
 '$ w3y 56k modem sounds' to see youtube videos relevant for your phrase.
 
 
--------------------------------------------------------------------------------
 
-
-******** search engines
-
+search engines
+==============
 
 The only major one that works flawlessly with w3m is duckduckgo. Others are
 working more or less fine, so it's still ok to type for example '!s your query'
@@ -94,11 +94,9 @@ so put this one in a bookmark.
 Another search engine working great with w3m is search.marginalia.nu.
 
 
--------------------------------------------------------------------------------
 
-
-******** youtube 
-
+youtube 
+=======
 
 Above you could see how to use youtube from w3m web browser. From the command
 line you can use youtube-dl to download the videos and watch them with mpv.
@@ -131,12 +129,12 @@ Invidio.us has all youtube videos without all the unnecessary javascript
 (this doesn't matter for w3m though) and is rendered way better by w3m than
 original youtube site.
 
+youtube-dl fork that works the best currently is github.com/yt-dlp/yt-dlp.
 
--------------------------------------------------------------------------------
 
 
-******** maps
-
+maps
+====
 
 This is something I need to do some research on. Maybe selenium will allow to
 use google maps in console? Dunno yet.
@@ -148,11 +146,9 @@ good tbh.
 I still fire up xorg to find the best route between map points.
 
 
--------------------------------------------------------------------------------
 
-
-******** hacker news, reddit
-
+hacker news, reddit
+===================
 
 Hacker news works great in w3m without any customizations. You can't create
 an account though, as verification is required via google's javascript. Still,
@@ -175,10 +171,9 @@ show reddit content in terminal, like rtv alternatives[x30].
 
 [x30]:https://github.com/michael-lazar/rtv/blob/master/ALTERNATIVES.md
 
--------------------------------------------------------------------------------
 
-
-******** twitter
+twitter
+=======
 
 'twitter.com' can be replaced by javascript-free version 'nitter.eu', while
 keeping the rest of the url the same.
@@ -188,11 +183,10 @@ You can also change User-Agent to google bot:
 Twitter.com maintains javascript-free version for crawlers, so w3m renders it
 just fine with the above User-Agent.
 
--------------------------------------------------------------------------------
 
 
-******** stack overflow, unix exchange et al
-
+stack overflow, unix exchange et al
+===================================
 
 Logging in from w3m works. Posting questions and answers works if you are not
 connected via tor or shared VPN (javascript captcha tries to appear otherwise).
@@ -216,10 +210,9 @@ socli[x40] is probably great too, but currently broken[x41] and limited.
 [x40]:https://github.com/gautamkrishnar/socli
 [x41]:https://github.com/gautamkrishnar/socli/issues/163
 
--------------------------------------------------------------------------------
 
-******** tor
-
+tor
+===
 
 To visit .onion webpages from w3m you need to install privoxy and tor daemon.
 
@@ -246,4 +239,3 @@ Now just open w3m, go to options and set option 'use proxy' to yes. You can now
 open any .onion site in linux console.
 
 WARNING! If you want or need the best anonymity use Tor Browser in Xorg.
-

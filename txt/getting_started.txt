@@ -1,4 +1,7 @@
-*********************            getting started           *********************
+===============
+getting started
+===============
+
 
 
 This is actually easy - probably in any Linux distribution you just need to

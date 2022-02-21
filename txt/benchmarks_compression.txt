@@ -1,8 +1,13 @@
-************************     Data compression utils     ************************
+======================
+data compression utils
+======================
+
+Benchmarks of various data compression tools
 
 
 
-* results and key observations
+results and key observations
+============================
 
 system used : link[x00]
 methodology : link[x01]
@@ -89,7 +94,8 @@ other observations:
 
 
 
-* tested programs and results for each command
+tested programs and results for each command
+============================================
 
 Links contain benchmark results for programs' various settings performed on one
 set of text data and one set of binary data.
@@ -118,7 +124,8 @@ brotli[x25]    1.0.9
 
 
 
-* result files
+result files
+============
 
 How to read result tables: link[x30].
 

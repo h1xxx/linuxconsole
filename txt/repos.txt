@@ -1,7 +1,15 @@
+=========
+git repos
+=========
 
-* linuxconsole.net
+Various tools I created and use.
 
-$ git clone git://linuxconsole.net/linuxconsole.git
+
+
+linuxconsole.net
+================
+
+git clone git://linuxconsole.net/linuxconsole.git
 
 Source for this site. Pretty minimal (yay!). Can be easily repurposed for
 similar projects.  
@@ -9,7 +17,9 @@ similar projects.
 Languages: shell, html, css
 
 
-* utils
+
+utils
+=====
 
 $ git clone git://linuxconsole.net/utils.git
 
@@ -17,17 +27,9 @@ Just some small utils.
 Languages: C, Go, Shell
 
 
-* stts
 
-$ git clone git://linuxconsole.net/stts.git
-
-Program to print system information in one line to be used in tmux status bar.
-"Works on my computer", but it most probably won't work on yours yet.  
-
-Language: C
-
-
-* benchmarks
+benchmarks
+==========
 
 $ git clone git://linuxconsole.net/benchmarks.git
 
@@ -36,7 +38,9 @@ Framework for benchmarking run times of other commands.
 Language: Go
 
 
-* newsfilter
+
+newsfilter
+==========
 
 $ git clone git://linuxconsole.net/newsfilter.git
 

@@ -1,5 +1,6 @@
-*********************              multimedia              *********************
-
+==========
+multimedia
+==========
 
 Index:
 
@@ -7,11 +8,12 @@ Index:
 * images
 * PDFs, DJVUs and e-books
 * camera and QR codes scanning
+* shazam
 
 
 
-******** video and music
-
+video and music
+===============
 
 mpv has everything I need, including the ability to play streams. To play videos
 in the console you just need to provide --vo=drm argument. To play music you
@@ -58,11 +60,9 @@ filter results, sort/shuffle, and finally pass links to mpv. Feel the freedom.
 [x00]:https://www.liveradio.ie/countries
 [x01]:./files/musiclike.sh
 
--------------------------------------------------------------------------------
 
-
-******** images
-
+images
+======
 
 There are two image viewers - fim[x10] and fbi[x11]. I'm currently using fim,
 which is supposed to be improved fbi. Both do the job.
@@ -70,11 +70,9 @@ which is supposed to be improved fbi. Both do the job.
 [x10]:https://savannah.nongnu.org/projects/fbi-improved
 [x11]:https://www.kraxel.org/blog/linux/fbida
 
--------------------------------------------------------------------------------
 
-
-******** PDFs, DJVUs and e-books
-
+PDFs, DJVUs and e-books
+=======================
 
 For PDFs and DJVUs I use fbpdf[x20] that also provides fbdjvu binary. It works
 good enough not to start xorg to work with PDFs. Be aware that after changing
@@ -97,11 +95,9 @@ also to dump them into PDF.
 [x20]:https://github.com/aligrudi/fbpdf
 [x21]:https://sourceforge.net/projects/ebook-tools/
 
--------------------------------------------------------------------------------
 
-
-******** camera and QR codes scanning
-
+camera and QR codes scanning
+============================
 
 To record video from camera you can use ffmpeg with compiled in v4l2 support.
 v4l2-ctl is available in v4l-utils package. Check out these commands:
@@ -146,9 +142,9 @@ For reading QR codes I use zbar with compiled in v4l support:
 window, which it cannot open, because Linux console. --prescale is useful to
 increase cam resolution to pick up QR code faster.
 
--------------------------------------------------------------------------------
 
 
-******** shazam
+shazam
+======
 
-chromaprint/acoustID is to be investigated.
+Usage of chromaprint/acoustID is to be investigated.

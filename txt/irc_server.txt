@@ -1,9 +1,11 @@
-*********************             irc server               *********************
+==========
+irc server
+==========
 
 
 
-
-Let's have a chat on linuxconsole.net:6697. Only TLS via the below certificate.
+Let's have a chat on linuxconsole.net:6697! Only TLS via the below certificate
+fingerprints.
 
 Pin these fingerprints in your client. Your client needs to support certificate
 pinning. Examples of clients with this functionality: irssi, weechat.

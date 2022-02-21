@@ -1,6 +1,9 @@
 
 
-*********************           linuxconsole.net           *********************
+
+================
+linuxconsole.net
+================
 
 
 Welcome.
@@ -27,7 +30,7 @@ you've visited checkout the git[x01] history.
 
 
 
-_______________________________________________________________________________
+
 
 This site has been optimized for w3m 0.5.3 or above.
 

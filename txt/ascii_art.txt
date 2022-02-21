@@ -1,13 +1,13 @@
-
-
-*********************              ascii art               *********************
-
+=========
+ascii art
+=========
 
 A collection of ascii art found in various places of the web.
 
 
 
-******** vt100 animations
+vt100 animations
+================
 
 Found on http://artscene.textfiles.com/vt100. Download also from here[x00].
 
@@ -19,9 +19,8 @@ passing though the pipes with throttle[x01] program.
 [x00]:https://linuxconsole.net/files/ascii_vt100.tar.bz2
 [x01]:https://distfiles.gentoo.org/distfiles/throttle-1.2.tar.gz
 
-________________________________________________________________________________
 
-
-******** cool ansi images
+cool ansi images
+================
 
 https://16colo.rs

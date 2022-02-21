@@ -1,4 +1,12 @@
-# cool personal sites
+=====
+links
+=====
+
+Various links i like to visit every now and then.
+
+
+cool personal sites
+===================
 
 https://dwheeler.com
 https://z3bra.org/
@@ -14,9 +22,11 @@ https://foxes.are.not.allowed.org/
 http://box.matto.nl/
 https://dataswamp.org/~solene/
 https://unixsheikh.com
+https://pwning.systems/
 
 
-# communities
+communities
+===========
 
 https://2f30.org
 https://volatile.bz
@@ -27,14 +37,17 @@ http://www.anonet.org/
 ssh torus@ascii.town
 
 
-# hacker zone
+hacker zone
+===========
 
 http://eternal.red/
 https://pagedout.institute
 https://tmpout.sh/1/
+https://0xdf.gitlab.io/
 
 
-# tor
+tor
+===
 
 http://xbvdi24nkz3arqhfckgu6wkjql6nlvuatgbm2zgqbfqhbb5migkxyuyd.onion/
 http://ebca2srjjopvpopuypgn34wdnbj4ohwm7e5dbw5m5srv3nxpxzrdd4qd.onion/index.html
@@ -43,7 +56,8 @@ http://tirxscsg3pcenlff67ecn2kb3jfv3ori7bgwryyn7btktohfdkms2cyd.onion/
 http://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
 
 
-# other
+other
+=====
 
 https://blog.increasinglyadequate.com/
 https://neocities.org/browse
