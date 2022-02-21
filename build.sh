@@ -55,6 +55,7 @@ for txt_file in txt/*.txt; do
 	cat assets/html.end.html 			>> $build_file
 	add_hrefs					$build_file
 
+	touch -d "$(git log -1 --format="%aD" -- "$txt_file")" $build_file
 done
 
 echo '*** copying files...'
