@@ -1,0 +1,53 @@
+
+tools i use
+
+[ multimedia ]
+
+mpv
+ffmpeg
+fim
+fbpdf
+
+
+
+[ hacking ]
+
+[ osint ]
+
+metabigor
+
+
+[ burp and zaproxy replacements ]
+
+
+burp proxy			mitmproxy
+burp repeater			mitmproxy
+burp decode			decodify, hurl
+burp intruder			fuff, gobuster
+burp scanner - crawler
+	gospider
+	metasploit auxiliary/crawler/msfcrawler
+	evine
+
+burp scanner - passive vuln scan on offline data from crawler
+burp scanner - active vuln scan:
+	verify vulns from the passive scan
+	javascript analysis
+	fuzzes various identified insertion points and parameters for XSS,
+		Command Injection, SQL Injection, etc.
+wapiti
+nikto
+jaeles
+jaeles-signatures
+zaproxy + python-owasp-zap
+osmedeus
+xsspy
+
+
+
+
+
+research tools for:
+password spraying against applications that use Active Directory (AD)
+authentication such as Outlook Web Access (OWA), SSL VPN portals, Remote Desktop
+Services (RDS), Citrix, custom web applications that use AD authentication

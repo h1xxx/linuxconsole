@@ -1,0 +1,37 @@
+[ms office](./ms_office.html)
+[dev workflow](dev_workflow.html)
+[finance](./finance.html)
+[my computing](./my_computing.html)
+
+add vlock info
+
+https://github.com/Lauriat/texel
+
+links
+
+google maps
+https://github.com/osm-search/Nominatim
+curl -s 'https://nominatim.openstreetmap.org/search?q=36%20Quai%20des%20Orfevres%20Paris&format=json' | jq .
+https://github.com/codesoap/osmf
+
+check redmine
+
+youtube get good suggestions for bestie boys sabotage letterman and
+offsprint self esteem glastonbury
+
+tips:
+cat /dev/zero > /dev/fb0
+bell on message
+touchtyping
+
+games:
+Openarena
+OpenTTD
+
+
+23:36:18 <Leslie> Another suggestion: Add modification dates to the pages. If
+you don't want them in the HTML,
+                  keep/preserve the modification timestamps of the files so that
+		  the `Last-Modified:` HTTP header is
+		                    accurate.
+
