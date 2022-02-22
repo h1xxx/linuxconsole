@@ -34,6 +34,47 @@ add_hrefs()
 	done
 }
 
+get_index_h2() {
+	FILE=$1
+	awk '/^Index:/{printf $0 RS}' RS='\n\n' $FILE |
+		grep -v -e '^Index:$' -e '^$' -e '^  - ' |
+		sed 's|^\* ||g'
+}
+
+get_index_h3() {
+	FILE=$1
+	awk '/^Index:/{printf $0 RS}' RS='\n\n' $FILE |
+		grep -v -e '^Index:$' -e '^$' |
+		grep '^  - ' |
+		sed 's|^  - ||g'
+}
+
+add_h1() {
+	FILE=$1
+	sed -i	-e '0,/^====*/ s|^====*$|<h1>&|' \
+		-e '0,/^====*/ s|^====*$|&</h1>|' ${FILE}
+}
+
+add_h2() {
+	FILE=$1
+	get_index_h2 ${FILE} | while read -r l; do
+		grep -q "^${l}$" ${FILE} || echo "ERROR: index not found: ${l}"
+		sed -i	-e "s|^${l}$|<h2><span id=\"${l}\">${l}</span>|"\
+			-e "s|^\* ${l}$|<a href=\"#${l}\">\* ${l}</a>|" ${FILE}
+	done
+	sed -i 's|^====*$|&</h2>|' ${FILE}
+}
+
+add_h3() {
+	FILE=$1
+	get_index_h3 ${FILE} | while read -r l; do
+		grep -q "^${l}$" ${FILE} || echo "ERROR: index not found: ${l}"
+		sed -i	-e "s|^${l}$|<h3><span id=\"${l}\">${l}</span>|"\
+			-e "s|^  - ${l}$|<a href=\"#${l}\">  - ${l}</a>|" ${FILE}
+	done
+	sed -i 's|^----*$|&</h3>|' ${FILE}
+}
+
 
 echo '*** cleaning old build...'
 [ -d _build ] && rm -r _build
@@ -54,6 +95,9 @@ for txt_file in txt/*.txt; do
 	txt2html $txt_file				>> $build_file
 	cat assets/html.end.html 			>> $build_file
 	add_hrefs					$build_file
+	add_h1						$build_file
+	add_h2						$build_file
+	add_h3						$build_file
 
 	touch -d "$(git log -1 --format="%aD" -- "$txt_file")" $build_file
 done

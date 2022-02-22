@@ -4,6 +4,12 @@ git repos
 
 Various tools I created and use.
 
+Index:
+* linuxconsole.net
+* utils
+* benchmarks
+* newsfilter
+
 
 
 linuxconsole.net

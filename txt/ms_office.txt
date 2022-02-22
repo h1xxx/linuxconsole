@@ -3,7 +3,6 @@ microsoft office
 ================
 
 Index:
-
 * microsoft outlook
 * microsoft word
 * microsoft excel

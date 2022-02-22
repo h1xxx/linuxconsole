@@ -4,6 +4,10 @@ ascii art
 
 A collection of ascii art found in various places of the web.
 
+Index:
+* vt100 animations
+* cool ansi images
+
 
 
 vt100 animations

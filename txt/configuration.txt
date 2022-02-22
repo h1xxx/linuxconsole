@@ -3,7 +3,6 @@ configuration
 =============
 
 Index:
-
 * display
   - resolution
   - setterm
@@ -122,8 +121,8 @@ To make this persistent do:
 
 
 
-users and security
-==================
+security and user separation
+============================
 
 To be able to play videos in your Linux console and listen to audio you'll need
 to add a user doing those things to 'audio' and 'video' groups.

@@ -1,13 +1,9 @@
 
-
-
 ================
 linuxconsole.net
 ================
 
-
 Welcome.
-
 
 This site is dedicated to using computers only through the console[x02] of Linux
 systems without any graphical display environments. Like this[x03].
@@ -26,11 +22,7 @@ you've visited checkout the git[x01] history.
 
 
 
-
-
-
-
-
+------------------------------------------------------------------------------
 
 This site has been optimized for w3m 0.5.3 or above.
 

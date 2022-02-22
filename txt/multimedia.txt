@@ -3,7 +3,6 @@ multimedia
 ==========
 
 Index:
-
 * video and music
 * images
 * PDFs, DJVUs and e-books

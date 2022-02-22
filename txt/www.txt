@@ -3,7 +3,6 @@ world wide web
 ==============
 
 Index:
-
 * web browser
 * search engines
 * youtube
@@ -95,7 +94,7 @@ Another search engine working great with w3m is search.marginalia.nu.
 
 
 
-youtube 
+youtube
 =======
 
 Above you could see how to use youtube from w3m web browser. From the command
@@ -185,8 +184,8 @@ just fine with the above User-Agent.
 
 
 
-stack overflow, unix exchange et al
-===================================
+stack overflow et al
+====================
 
 Logging in from w3m works. Posting questions and answers works if you are not
 connected via tor or shared VPN (javascript captcha tries to appear otherwise).
