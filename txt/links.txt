@@ -22,7 +22,14 @@ https://foxes.are.not.allowed.org/
 http://box.matto.nl/
 https://dataswamp.org/~solene/
 https://unixsheikh.com
+http://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
+
+Oblivion's website
 https://pwning.systems/
+
+qorg's website
+http://qorg11.net
+http://lainwir3s4y5r7mqm3kurzpljyf77vty2hrrfkps6wm4nnnqzest4lqd.onion/
 
 
 communities
@@ -36,6 +43,9 @@ https://www.darkscience.net
 http://www.anonet.org/
 ssh torus@ascii.town
 
+good anon BBS board
+http://rq5m2pytiijc7pjtiprhyobmcv3q2xp45ojdvmmtz6rr4hetdti3cmid.onion
+
 
 hacker zone
 ===========
@@ -44,16 +54,6 @@ http://eternal.red/
 https://pagedout.institute
 https://tmpout.sh/1/
 https://0xdf.gitlab.io/
-
-
-tor
-===
-
-http://xbvdi24nkz3arqhfckgu6wkjql6nlvuatgbm2zgqbfqhbb5migkxyuyd.onion/
-http://ebca2srjjopvpopuypgn34wdnbj4ohwm7e5dbw5m5srv3nxpxzrdd4qd.onion/index.html
-http://lainwir3s4y5r7mqm3kurzpljyf77vty2hrrfkps6wm4nnnqzest4lqd.onion/
-http://tirxscsg3pcenlff67ecn2kb3jfv3ori7bgwryyn7btktohfdkms2cyd.onion/
-http://meynethaffeecapsvfphrcnfrx44w2nskgls2juwitibvqctk2plvhqd.onion/
 
 
 other
